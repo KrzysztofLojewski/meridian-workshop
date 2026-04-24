@@ -6,6 +6,8 @@ export default {
     orders: 'Orders',
     finance: 'Finance',
     demandForecast: 'Demand Forecast',
+    reports: 'Reports',
+    restocking: 'Restocking',
     companyName: 'Catalyst Components',
     subtitle: 'Inventory Management System'
   },
@@ -309,6 +311,53 @@ export default {
     english: 'English',
     japanese: 'Japanese',
     selectLanguage: 'Select Language'
+  },
+
+  // Reports
+  reports: {
+    title: 'Performance Reports',
+    description: 'View quarterly performance metrics and monthly trends',
+    quarterlyPerformance: 'Quarterly Performance',
+    monthlyRevenueTrend: 'Monthly Revenue Trend',
+    monthOverMonth: 'Month-over-Month Analysis',
+    totalRevenueYTD: 'Total Revenue (YTD)',
+    avgMonthlyRevenue: 'Avg Monthly Revenue',
+    totalOrdersYTD: 'Total Orders (YTD)',
+    bestQuarter: 'Best Performing Quarter',
+    quarter: 'Quarter',
+    totalOrders: 'Total Orders',
+    totalRevenue: 'Total Revenue',
+    avgOrderValue: 'Avg Order Value',
+    fulfillmentRate: 'Fulfillment Rate',
+    month: 'Month',
+    orders: 'Orders',
+    revenue: 'Revenue',
+    change: 'Change',
+    growthRate: 'Growth Rate'
+  },
+
+  // Restocking
+  restocking: {
+    title: 'Restocking Recommendations',
+    description: 'Items below reorder point, prioritized by demand trend and urgency',
+    budgetCeiling: 'Budget Ceiling',
+    itemsToRestock: 'Items to restock',
+    withinBudget: 'Within budget',
+    totalCost: 'Total cost (within budget)',
+    budgetRemaining: 'Budget remaining',
+    priority: 'Priority',
+    onHand: 'On Hand',
+    reorderPoint: 'Reorder Pt.',
+    orderQty: 'Order Qty',
+    unitCost: 'Unit Cost',
+    totalCostCol: 'Total Cost',
+    trend: 'Trend',
+    action: 'Action',
+    addToOrder: 'Add to order',
+    ordered: '✓ Ordered',
+    overBudget: 'over budget',
+    allStocked: 'All items are adequately stocked',
+    allStockedDesc: 'No items are currently below their reorder point.'
   },
 
   // Common

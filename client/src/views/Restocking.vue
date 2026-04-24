@@ -3,11 +3,11 @@
     <div class="page-header">
       <div class="header-row">
         <div>
-          <h2>Restocking Recommendations</h2>
-          <p>Items below reorder point, prioritized by demand trend and urgency</p>
+          <h2>{{ t('restocking.title') }}</h2>
+          <p>{{ t('restocking.description') }}</p>
         </div>
         <div class="budget-control">
-          <label class="budget-label">Budget Ceiling</label>
+          <label class="budget-label">{{ t('restocking.budgetCeiling') }}</label>
           <div class="budget-input-wrapper">
             <span class="budget-prefix">$</span>
             <input
@@ -27,19 +27,19 @@
     <!-- Summary bar -->
     <div class="summary-bar" v-if="!loading && !error">
       <div class="summary-item">
-        <span class="summary-label">Items to restock</span>
+        <span class="summary-label">{{ t('restocking.itemsToRestock') }}</span>
         <span class="summary-value">{{ recommendations.length }}</span>
       </div>
       <div class="summary-item">
-        <span class="summary-label">Within budget</span>
+        <span class="summary-label">{{ t('restocking.withinBudget') }}</span>
         <span class="summary-value">{{ withinBudgetCount }}</span>
       </div>
       <div class="summary-item">
-        <span class="summary-label">Total cost (within budget)</span>
+        <span class="summary-label">{{ t('restocking.totalCost') }}</span>
         <span class="summary-value">{{ formatCurrency(withinBudgetCost) }}</span>
       </div>
       <div class="summary-item" v-if="budget">
-        <span class="summary-label">Budget remaining</span>
+        <span class="summary-label">{{ t('restocking.budgetRemaining') }}</span>
         <span class="summary-value" :class="budgetRemaining < 0 ? 'negative' : 'positive'">
           {{ formatCurrency(budgetRemaining) }}
         </span>
@@ -50,8 +50,8 @@
     <div v-else-if="error" class="error">{{ error }}</div>
     <div v-else-if="recommendations.length === 0" class="empty-state">
       <div class="empty-icon">✓</div>
-      <h3>All items are adequately stocked</h3>
-      <p>No items are currently below their reorder point.</p>
+      <h3>{{ t('restocking.allStocked') }}</h3>
+      <p>{{ t('restocking.allStockedDesc') }}</p>
     </div>
     <div v-else class="card">
       <div class="table-container">
@@ -132,10 +132,12 @@
 <script>
 import { ref, computed, watch, onMounted } from 'vue'
 import { useFilters } from '../composables/useFilters'
+import { useI18n } from '../composables/useI18n'
 
 export default {
   name: 'Restocking',
   setup() {
+    const { t } = useI18n()
     const { selectedLocation, selectedCategory, getCurrentFilters } = useFilters()
 
     const loading = ref(true)
@@ -239,6 +241,7 @@ export default {
     })
 
     return {
+      t,
       loading, error, recommendations, budget, orderedSkus,
       sortKey, sortDir, sortedRecommendations,
       withinBudgetCount, withinBudgetCost, budgetRemaining,
