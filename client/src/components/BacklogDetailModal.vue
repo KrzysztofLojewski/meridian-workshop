@@ -441,4 +441,34 @@ const formatDate = (dateString) => {
 }
 .tui .modal-body input::placeholder { color: #00aa2a !important; }
 .tui .section-heading { color: #00aa2a !important; border-bottom-color: #00ff41 !important; }
+</style>\n<style>\n/* ── fix: correct class names + missing dark overrides ─── */\n.dark .modal-container { background: #1e293b !important; border-radius: 12px; box-shadow: 0 20px 50px rgba(0,0,0,0.6) !important; }\n.dark .modal-header { background: #1e293b !important; border-bottom-color: #334155 !important; }\n.dark .modal-footer { background: #1e293b !important; border-top-color: #334155 !important; }\n.dark .modal-title { color: #f1f5f9 !important; }\n.dark .close-button { color: #94a3b8 !important; }\n.dark .close-button:hover { background: #334155 !important; color: #f1f5f9 !important; }\n.dark .btn-secondary { background: #334155 !important; border-color: #475569 !important; color: #cbd5e1 !important; }\n.dark .btn-secondary:hover { background: #475569 !important; }\n.dark .info-label { color: #94a3b8 !important; }\n.dark .info-value { color: #f1f5f9 !important; }\n/* ── fix: correct class names + missing tui overrides ─── */\n.tui .modal-container { background: #000000 !important; border: 1px solid #00ff41 !important; border-radius: 0 !important; box-shadow: none !important; }\n.tui .modal-header { background: #000000 !important; border-bottom-color: #00ff41 !important; }\n.tui .modal-footer { background: #000000 !important; border-top-color: #00ff41 !important; }\n.tui .modal-title { color: #00ff41 !important; }\n.tui .close-button { color: #00aa2a !important; border-radius: 0 !important; }\n.tui .close-button:hover { background: #00ff41 !important; color: #000000 !important; }\n.tui .btn-secondary { background: #000000 !important; border: 1px solid #00ff41 !important; color: #00ff41 !important; border-radius: 0 !important; }\n.tui .btn-secondary:hover { background: #001a00 !important; }\n.tui .info-label { color: #00aa2a !important; }\n.tui .info-value { color: #00ff41 !important; }\n</style>
+<style>
+/* BacklogDetailModal specific */
+.dark .shortage-header { border-bottom-color: #334155 !important; }
+.dark .shortage-icon { background: #450a0a !important; }
+.dark .item-name { color: #f1f5f9 !important; }
+.dark .item-sku { color: #94a3b8 !important; }
+.dark .priority-badge.high   { background: #450a0a !important; color: #fca5a5 !important; }
+.dark .priority-badge.medium { background: #78350f !important; color: #fcd34d !important; }
+.dark .priority-badge.low    { background: #1e3a5f !important; color: #93c5fd !important; }
+.dark .summary-card { background: #0f172a !important; border-color: #334155 !important; }
+.dark .summary-card.danger  { background: #3f0000 !important; border-color: #7f1d1d !important; }
+.dark .summary-card.warning { background: #3f2000 !important; border-color: #78350f !important; }
+.dark .summary-label { color: #94a3b8 !important; }
+.dark .summary-value { color: #f1f5f9 !important; }
+.dark .summary-card.danger .summary-value  { color: #fca5a5 !important; }
+.dark .summary-card.warning .summary-value { color: #fcd34d !important; }
+
+.tui .shortage-header { border-bottom-color: #00ff41 !important; }
+.tui .shortage-icon { background: #000000 !important; border: 1px solid #00ff41 !important; border-radius: 0 !important; }
+.tui .item-name { color: #00ff41 !important; }
+.tui .item-sku { color: #00aa2a !important; }
+.tui .priority-badge { background: #000000 !important; border: 1px solid #00ff41 !important; color: #00ff41 !important; border-radius: 0 !important; }
+.tui .summary-card { background: #000000 !important; border-color: #00ff41 !important; border-radius: 0 !important; }
+.tui .summary-card.danger, .tui .summary-card.warning { background: #000000 !important; border-color: #00ff41 !important; }
+.tui .summary-label { color: #00aa2a !important; }
+.tui .summary-value { color: #00ff41 !important; }
+.tui .summary-card.danger .summary-value  { color: #00ff41 !important; }
+.tui .summary-card.warning .summary-value { color: #00ff41 !important; }
+.tui .info-value.order-id, .tui .info-value.sku { color: #00ff41 !important; }
 </style>

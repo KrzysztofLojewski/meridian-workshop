@@ -445,4 +445,28 @@ const close = () => {
 }
 .tui .modal-body input::placeholder { color: #00aa2a !important; }
 .tui .section-heading { color: #00aa2a !important; border-bottom-color: #00ff41 !important; }
+</style>\n<style>\n/* ── fix: correct class names + missing dark overrides ─── */\n.dark .modal-container { background: #1e293b !important; border-radius: 12px; box-shadow: 0 20px 50px rgba(0,0,0,0.6) !important; }\n.dark .modal-header { background: #1e293b !important; border-bottom-color: #334155 !important; }\n.dark .modal-footer { background: #1e293b !important; border-top-color: #334155 !important; }\n.dark .modal-title { color: #f1f5f9 !important; }\n.dark .close-button { color: #94a3b8 !important; }\n.dark .close-button:hover { background: #334155 !important; color: #f1f5f9 !important; }\n.dark .btn-secondary { background: #334155 !important; border-color: #475569 !important; color: #cbd5e1 !important; }\n.dark .btn-secondary:hover { background: #475569 !important; }\n.dark .info-label { color: #94a3b8 !important; }\n.dark .info-value { color: #f1f5f9 !important; }\n/* ── fix: correct class names + missing tui overrides ─── */\n.tui .modal-container { background: #000000 !important; border: 1px solid #00ff41 !important; border-radius: 0 !important; box-shadow: none !important; }\n.tui .modal-header { background: #000000 !important; border-bottom-color: #00ff41 !important; }\n.tui .modal-footer { background: #000000 !important; border-top-color: #00ff41 !important; }\n.tui .modal-title { color: #00ff41 !important; }\n.tui .close-button { color: #00aa2a !important; border-radius: 0 !important; }\n.tui .close-button:hover { background: #00ff41 !important; color: #000000 !important; }\n.tui .btn-secondary { background: #000000 !important; border: 1px solid #00ff41 !important; color: #00ff41 !important; border-radius: 0 !important; }\n.tui .btn-secondary:hover { background: #001a00 !important; }\n.tui .info-label { color: #00aa2a !important; }\n.tui .info-value { color: #00ff41 !important; }\n</style>
+<style>
+/* CostDetailModal specific */
+.dark .cost-item { background: #0f172a !important; border-color: #334155 !important; }
+.dark .cost-name { color: #f1f5f9 !important; }
+.dark .cost-amount { color: #f1f5f9 !important; }
+.dark .cost-percentage { color: #94a3b8 !important; }
+.dark .cost-icon { opacity: 0.85; }
+.dark .summary-card { background: #0f172a !important; border-color: #334155 !important; }
+.dark .summary-card.total { background: linear-gradient(135deg, #1e3a5f 0%, #1e293b 100%) !important; }
+.dark .summary-label { color: #94a3b8 !important; }
+.dark .summary-value { color: #f1f5f9 !important; }
+
+.tui .cost-item { background: #000000 !important; border-color: #00ff41 !important; border-radius: 0 !important; }
+.tui .cost-item.procurement, .tui .cost-item.operational,
+.tui .cost-item.labor, .tui .cost-item.overhead { background: #000000 !important; border-color: #00ff41 !important; }
+.tui .cost-icon { background: #00ff41 !important; color: #000000 !important; border-radius: 0 !important; }
+.tui .cost-name { color: #00ff41 !important; }
+.tui .cost-amount { color: #00ff41 !important; }
+.tui .cost-percentage { color: #00aa2a !important; }
+.tui .summary-card { background: #000000 !important; border-color: #00ff41 !important; border-radius: 0 !important; }
+.tui .summary-card.total { background: #000000 !important; border: 2px solid #00ff41 !important; color: #00ff41 !important; }
+.tui .summary-label { color: #00aa2a !important; }
+.tui .summary-value { color: #00ff41 !important; }
 </style>
