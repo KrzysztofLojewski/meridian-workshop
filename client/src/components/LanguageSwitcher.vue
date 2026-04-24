@@ -181,3 +181,19 @@ const selectLanguage = (locale) => {
   flex-shrink: 0;
 }
 </style>
+
+<style>
+.dark .language-switcher-btn {
+  background: #1e293b;
+  border-color: #475569;
+  color: #f1f5f9;
+}
+.dark .language-switcher-btn:hover { background: #334155; border-color: #64748b; }
+.dark .language-dropdown {
+  background: #1e293b;
+  border-color: #334155;
+}
+.dark .language-option { color: #cbd5e1; }
+.dark .language-option:hover { background: #334155; }
+.dark .language-option.active { background: #1e3a5f; color: #60a5fa; }
+</style>

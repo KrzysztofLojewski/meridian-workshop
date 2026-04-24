@@ -1317,6 +1317,6 @@ export default {
 .dark .bar-count { color: #94a3b8; }
 
 /* donut center text */
-.dark .donut-total-label { color: #94a3b8; }
-.dark .donut-total-value { color: #f1f5f9; }
+.dark .donut-center-label { fill: #94a3b8; }
+.dark .donut-center-value { fill: #f1f5f9; }
 </style>
