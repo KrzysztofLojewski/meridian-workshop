@@ -302,3 +302,19 @@ export default {
 .tui .orders .stat-card { background: #000000 !important; border-color: #00ff41 !important; border-radius: 0 !important; }
 .tui .orders .item-meta { color: #00aa2a !important; }
 </style>
+
+<style>
+/* items-dropdown dark/TUI */
+.dark .orders .items-dropdown { background: #1e293b !important; border-color: #334155 !important; box-shadow: 0 4px 12px rgba(0,0,0,0.4) !important; border-radius: 8px; }
+.dark .orders .item-entry { border-bottom-color: #334155 !important; }
+.dark .orders .item-name { color: #f1f5f9 !important; }
+.dark .orders .item-meta { color: #94a3b8 !important; }
+.dark .orders .items-summary { color: #60a5fa !important; }
+
+.tui .orders .items-dropdown { background: #000000 !important; border: 1px solid #00ff41 !important; border-radius: 0 !important; box-shadow: none !important; }
+.tui .orders .item-entry { border-bottom-color: #00ff41 !important; }
+.tui .orders .item-name { color: #00ff41 !important; }
+.tui .orders .item-meta { color: #00aa2a !important; }
+.tui .orders .items-summary { color: #00ff41 !important; }
+.tui .orders .items-summary:hover { color: #00cc33 !important; }
+</style>

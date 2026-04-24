@@ -681,3 +681,44 @@ label {
 .tui .modal-close-btn { color: #00aa2a !important; border-radius: 0 !important; }
 .tui .modal-close-btn:hover { background: #00ff41 !important; color: #000000 !important; }
 </style>
+\n<style>\n/* ── fix: correct class names + missing dark overrides ─── */\n.dark .modal-container { background: #1e293b !important; border-radius: 12px; box-shadow: 0 20px 50px rgba(0,0,0,0.6) !important; }\n.dark .modal-header { background: #1e293b !important; border-bottom-color: #334155 !important; }\n.dark .modal-footer { background: #1e293b !important; border-top-color: #334155 !important; }\n.dark .modal-title { color: #f1f5f9 !important; }\n.dark .close-button { color: #94a3b8 !important; }\n.dark .close-button:hover { background: #334155 !important; color: #f1f5f9 !important; }\n.dark .btn-secondary { background: #334155 !important; border-color: #475569 !important; color: #cbd5e1 !important; }\n.dark .btn-secondary:hover { background: #475569 !important; }\n.dark .info-label { color: #94a3b8 !important; }\n.dark .info-value { color: #f1f5f9 !important; }\n/* ── fix: correct class names + missing tui overrides ─── */\n.tui .modal-container { background: #000000 !important; border: 1px solid #00ff41 !important; border-radius: 0 !important; box-shadow: none !important; }\n.tui .modal-header { background: #000000 !important; border-bottom-color: #00ff41 !important; }\n.tui .modal-footer { background: #000000 !important; border-top-color: #00ff41 !important; }\n.tui .modal-title { color: #00ff41 !important; }\n.tui .close-button { color: #00aa2a !important; border-radius: 0 !important; }\n.tui .close-button:hover { background: #00ff41 !important; color: #000000 !important; }\n.tui .btn-secondary { background: #000000 !important; border: 1px solid #00ff41 !important; color: #00ff41 !important; border-radius: 0 !important; }\n.tui .btn-secondary:hover { background: #001a00 !important; }\n.tui .info-label { color: #00aa2a !important; }\n.tui .info-value { color: #00ff41 !important; }\n</style>
+<style>
+/* TasksModal specific */
+.dark .modal-container { background: #1e293b !important; }
+.dark .task-form { background: #0f172a !important; border-radius: 12px; }
+.dark .task-form label { color: #94a3b8 !important; }
+.dark .task-input, .dark .task-select { background: #1e293b !important; color: #f1f5f9 !important; border-color: #475569 !important; }
+.dark .task-add-btn { background: linear-gradient(135deg, #4f46e5 0%, #6d28d9 100%) !important; }
+.dark .task-item { background: #0f172a !important; border-color: #334155 !important; }
+.dark .task-item:hover { background: #334155 !important; border-color: #475569 !important; }
+.dark .task-title { color: #f1f5f9 !important; }
+.dark .task-item.completed .task-title { color: #64748b !important; }
+.dark .task-due-date { color: #94a3b8 !important; }
+.dark .priority-badge.high   { background: #450a0a !important; color: #fca5a5 !important; }
+.dark .priority-badge.medium { background: #78350f !important; color: #fcd34d !important; }
+.dark .priority-badge.low    { background: #1e3a5f !important; color: #93c5fd !important; }
+.dark .status-badge.overdue  { background: #450a0a !important; color: #fca5a5 !important; }
+.dark .status-badge.urgent   { background: #78350f !important; color: #fcd34d !important; }
+.dark .status-badge.upcoming { background: #1e3a5f !important; color: #93c5fd !important; }
+.dark .status-badge.completed { background: #064e3b !important; color: #6ee7b7 !important; }
+.dark .no-tasks { color: #64748b !important; }
+.dark .tasks-divider { background: #334155 !important; }
+
+.tui .modal-container { background: #000000 !important; border: 1px solid #00ff41 !important; border-radius: 0 !important; }
+.tui .task-form { background: #000000 !important; border: 1px solid #00ff41 !important; border-radius: 0 !important; }
+.tui .task-form label { color: #00aa2a !important; }
+.tui .task-input, .tui .task-select { background: #000000 !important; color: #00ff41 !important; border-color: #00ff41 !important; border-radius: 0 !important; }
+.tui .task-input::placeholder { color: #00aa2a !important; }
+.tui .task-add-btn { background: #00ff41 !important; color: #000000 !important; border-radius: 0 !important; border: none !important; }
+.tui .task-add-btn:hover { background: #00cc33 !important; }
+.tui .task-item { background: #000000 !important; border-color: #00ff41 !important; border-radius: 0 !important; border-left-color: #00ff41 !important; }
+.tui .task-item:hover { background: #001a00 !important; }
+.tui .task-title { color: #00ff41 !important; }
+.tui .task-item.completed .task-title { color: #00aa2a !important; }
+.tui .task-delete-btn { background: #000000 !important; color: #00ff41 !important; border: 1px solid #00ff41 !important; border-radius: 0 !important; }
+.tui .task-delete-btn:hover { background: #00ff41 !important; color: #000000 !important; }
+.tui .task-due-date { color: #00aa2a !important; }
+.tui .priority-badge, .tui .status-badge { background: #000000 !important; border: 1px solid #00ff41 !important; color: #00ff41 !important; border-radius: 0 !important; }
+.tui .no-tasks { color: #00aa2a !important; }
+.tui .tasks-divider { background: #00ff41 !important; }
+</style>

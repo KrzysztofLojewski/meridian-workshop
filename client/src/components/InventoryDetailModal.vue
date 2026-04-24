@@ -511,4 +511,30 @@ const getSummaryCardClass = () => {
 }
 .tui .modal-body input::placeholder { color: #00aa2a !important; }
 .tui .section-heading { color: #00aa2a !important; border-bottom-color: #00ff41 !important; }
+</style>\n<style>\n/* ── fix: correct class names + missing dark overrides ─── */\n.dark .modal-container { background: #1e293b !important; border-radius: 12px; box-shadow: 0 20px 50px rgba(0,0,0,0.6) !important; }\n.dark .modal-header { background: #1e293b !important; border-bottom-color: #334155 !important; }\n.dark .modal-footer { background: #1e293b !important; border-top-color: #334155 !important; }\n.dark .modal-title { color: #f1f5f9 !important; }\n.dark .close-button { color: #94a3b8 !important; }\n.dark .close-button:hover { background: #334155 !important; color: #f1f5f9 !important; }\n.dark .btn-secondary { background: #334155 !important; border-color: #475569 !important; color: #cbd5e1 !important; }\n.dark .btn-secondary:hover { background: #475569 !important; }\n.dark .info-label { color: #94a3b8 !important; }\n.dark .info-value { color: #f1f5f9 !important; }\n/* ── fix: correct class names + missing tui overrides ─── */\n.tui .modal-container { background: #000000 !important; border: 1px solid #00ff41 !important; border-radius: 0 !important; box-shadow: none !important; }\n.tui .modal-header { background: #000000 !important; border-bottom-color: #00ff41 !important; }\n.tui .modal-footer { background: #000000 !important; border-top-color: #00ff41 !important; }\n.tui .modal-title { color: #00ff41 !important; }\n.tui .close-button { color: #00aa2a !important; border-radius: 0 !important; }\n.tui .close-button:hover { background: #00ff41 !important; color: #000000 !important; }\n.tui .btn-secondary { background: #000000 !important; border: 1px solid #00ff41 !important; color: #00ff41 !important; border-radius: 0 !important; }\n.tui .btn-secondary:hover { background: #001a00 !important; }\n.tui .info-label { color: #00aa2a !important; }\n.tui .info-value { color: #00ff41 !important; }\n</style>
+<style>
+/* InventoryDetailModal specific */
+.dark .item-header { border-bottom-color: #334155 !important; }
+.dark .item-name { color: #f1f5f9 !important; }
+.dark .item-sku { color: #94a3b8 !important; }
+.dark .stock-badge.success { background: #064e3b !important; color: #6ee7b7 !important; }
+.dark .stock-badge.warning { background: #78350f !important; color: #fcd34d !important; }
+.dark .stock-badge.danger  { background: #450a0a !important; color: #fca5a5 !important; }
+.dark .summary-card { background: #0f172a !important; border-color: #334155 !important; }
+.dark .summary-label { color: #94a3b8 !important; }
+.dark .summary-value { color: #f1f5f9 !important; }
+.dark .summary-subtitle { color: #64748b !important; }
+
+.tui .item-header { border-bottom-color: #00ff41 !important; }
+.tui .item-icon { background: #000000 !important; border: 1px solid #00ff41 !important; border-radius: 0 !important; }
+.tui .item-name { color: #00ff41 !important; }
+.tui .item-sku { color: #00aa2a !important; }
+.tui .stock-badge { background: #000000 !important; border: 1px solid #00ff41 !important; color: #00ff41 !important; border-radius: 0 !important; }
+.tui .summary-card { background: #000000 !important; border-color: #00ff41 !important; border-radius: 0 !important; }
+.tui .summary-card.primary, .tui .summary-card.success-card,
+.tui .summary-card.warning-card, .tui .summary-card.danger-card { background: #000000 !important; border-color: #00ff41 !important; }
+.tui .summary-label { color: #00aa2a !important; }
+.tui .summary-value { color: #00ff41 !important; }
+.tui .summary-subtitle { color: #00aa2a !important; }
+.tui .info-value.total-value { color: #00ff41 !important; }
 </style>
