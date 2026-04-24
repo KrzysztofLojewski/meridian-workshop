@@ -288,3 +288,8 @@ export default {
 .dark .orders .stat-label { color: #94a3b8; }
 .dark .orders .item-meta   { color: #94a3b8; }
 </style>
+
+<style>
+.dark .orders td strong    { color: #f1f5f9 !important; }
+.dark .orders .order-items { color: #94a3b8 !important; }
+</style>

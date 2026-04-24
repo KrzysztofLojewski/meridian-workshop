@@ -865,3 +865,13 @@ alert(`Transaction Details:\n\nID: ${transaction.id}\nDescription: ${transaction
 .dark .spending .bar-label { color: #94a3b8 !important; }
 .dark .spending .legend-item { color: #94a3b8 !important; }
 </style>
+
+<style>
+.dark .spending .transaction-amount { color: #f1f5f9 !important; }
+.dark .spending .chart-label       { color: #94a3b8 !important; }
+.dark .spending .legend-item       { color: #94a3b8 !important; }
+.dark .spending .category-bar-row  { color: #f1f5f9 !important; }
+.dark .spending td strong          { color: #f1f5f9 !important; }
+.dark .spending .bar-bg            { background: #334155 !important; }
+.dark .spending .month-label       { color: #94a3b8 !important; }
+</style>

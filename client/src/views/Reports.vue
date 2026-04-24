@@ -412,3 +412,9 @@ export default {
 .dark .reports .bar-label  { color: #94a3b8; }
 .dark .reports .loading, .dark .reports .error { color: #94a3b8; }
 </style>
+
+<style>
+.dark .reports td strong  { color: #f1f5f9 !important; }
+.dark .reports .positive-change { color: #4ade80 !important; }
+.dark .reports .negative-change { color: #f87171 !important; }
+</style>
