@@ -428,8 +428,11 @@ export default {
 .tui .reports .stat-card { background: #000000 !important; border-color: #00ff41 !important; border-radius: 0 !important; border-left-color: #00ff41 !important; }
 .tui .reports .stat-value { color: #00ff41 !important; }
 .tui .reports .stat-label { color: #00aa2a !important; }
-.tui .reports .bar { background: linear-gradient(to top, #00aa2a, #00ff41) !important; }
+.tui .reports .bar { background: #00ff41 !important; border-radius: 0 !important; }
+.tui .reports .bar:hover { background: #00cc33 !important; }
+.tui .reports .bar-container { background: #001a00 !important; }
 .tui .reports .bar-label { color: #00aa2a !important; }
+.tui .reports .bar-chart { border-color: #00ff41 !important; }
 .tui .reports .positive-change { color: #00ff41 !important; }
 .tui .reports .negative-change { color: #00aa2a !important; }
 </style>
