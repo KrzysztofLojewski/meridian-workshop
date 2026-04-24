@@ -1320,6 +1320,6 @@ export default {
 .dark .donut-center-label { fill: #94a3b8; }
 .dark .donut-center-value { fill: #f1f5f9; }
 .dark .legend-item-compact { color: #94a3b8; }
-.dark .health-metric-label { color: #94a3b8; }
-.dark .health-metric-value { color: #f1f5f9; }
+.dark .health-metric-label { color: #94a3b8 !important; }
+.dark .health-metric-value { color: #f1f5f9 !important; }
 </style>

@@ -860,4 +860,8 @@ alert(`Transaction Details:\n\nID: ${transaction.id}\nDescription: ${transaction
 .dark .spending .category-label { color: #94a3b8; }
 .dark .spending .category-value { color: #f1f5f9; }
 .dark .spending .cost-bar-bg    { background: #334155; }
+.dark .spending .revenue-bar    { background: #60a5fa !important; }
+.dark .spending .legend-dot.revenue-color { background: #60a5fa !important; }
+.dark .spending .bar-label { color: #94a3b8 !important; }
+.dark .spending .legend-item { color: #94a3b8 !important; }
 </style>
