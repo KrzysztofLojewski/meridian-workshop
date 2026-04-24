@@ -392,3 +392,16 @@ export default {
 .dark .demand .forecast-item-sku  { color: #94a3b8 !important; }
 .dark .demand td strong { color: #f1f5f9 !important; }
 </style>
+
+<style>
+/* trend-item rows inside the cards */
+.dark .demand .trend-item            { background: #0f172a !important; }
+.dark .demand .trend-item:hover      { background: #334155 !important; }
+.dark .demand .item-name             { color: #f1f5f9 !important; }
+.dark .demand .more-items            { color: #94a3b8 !important; }
+.dark .demand .trend-count           { color: #f1f5f9 !important; }
+/* trend icon backgrounds */
+.dark .demand .increasing-card .trend-icon { background: #064e3b !important; }
+.dark .demand .stable-card    .trend-icon  { background: #1e3a5f !important; }
+.dark .demand .decreasing-card .trend-icon { background: #450a0a !important; }
+</style>

@@ -219,3 +219,11 @@ export default {
   color: #f1f5f9;
 }
 </style>
+
+<style>
+.dark .filter-select option          { background: #1e293b; color: #f1f5f9; }
+.dark .filter-group label            { color: #94a3b8 !important; }
+.dark .filter-select                 { background: #0f172a !important; color: #f1f5f9 !important; border-color: #475569 !important; }
+.dark .reset-filters-btn             { background: #0f172a !important; border-color: #475569 !important; color: #94a3b8 !important; }
+.dark .reset-filters-btn:hover:not(:disabled) { background: #334155 !important; color: #f1f5f9 !important; }
+</style>

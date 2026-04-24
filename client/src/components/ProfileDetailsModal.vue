@@ -299,3 +299,22 @@ const formatDate = (dateString) => {
 .dark .empty-tasks { color: #94a3b8 !important; }
 .dark .section-heading { color: #94a3b8 !important; border-bottom-color: #334155 !important; }
 </style>
+
+<style>
+.dark .modal-backdrop               { background: rgba(0,0,0,0.75) !important; }
+.dark .modal-panel, .dark .modal-box { background: #1e293b !important; }
+.dark .modal-header                 { background: #1e293b !important; border-bottom-color: #334155 !important; }
+.dark .modal-header h2,
+.dark .modal-header h3              { color: #f1f5f9 !important; }
+.dark .detail-section               { border-bottom-color: #334155 !important; }
+.dark .detail-section h4            { color: #94a3b8 !important; }
+.dark .detail-row                   { border-bottom-color: #334155 !important; }
+.dark .detail-label                 { color: #94a3b8 !important; }
+.dark .detail-value                 { color: #f1f5f9 !important; }
+.dark .info-grid .info-item         { background: #0f172a !important; }
+.dark .info-item-label              { color: #94a3b8 !important; }
+.dark .info-item-value              { color: #f1f5f9 !important; }
+.dark .close-btn                    { color: #94a3b8 !important; }
+.dark .close-btn:hover              { background: #334155 !important; color: #f1f5f9 !important; }
+.dark .modal-footer                 { border-top-color: #334155 !important; background: #1e293b !important; }
+</style>
