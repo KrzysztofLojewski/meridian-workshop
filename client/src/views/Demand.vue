@@ -376,4 +376,11 @@ export default {
 .dark .demand .stat-card { background: #1e293b; border-color: #334155; }
 .dark .demand .stat-value { color: #f1f5f9; }
 .dark .demand .stat-label { color: #94a3b8; }
+.dark .demand .trend-card { background: #1e293b !important; border-color: #334155; }
+.dark .demand .trend-header { border-bottom-color: #334155; }
+.dark .demand .trend-label { color: #94a3b8 !important; }
+.dark .demand .trend-count { color: #f1f5f9 !important; }
+.dark .demand .increasing-card .trend-icon { background: #064e3b; }
+.dark .demand .stable-card    .trend-icon { background: #1e3a5f; }
+.dark .demand .decreasing-card .trend-icon { background: #450a0a; }
 </style>
