@@ -68,6 +68,7 @@ import { ref, onMounted, computed } from 'vue'
 import { api } from './api'
 import { useAuth } from './composables/useAuth'
 import { useI18n } from './composables/useI18n'
+import { useTheme } from './composables/useTheme'
 import FilterBar from './components/FilterBar.vue'
 import ProfileMenu from './components/ProfileMenu.vue'
 import ProfileDetailsModal from './components/ProfileDetailsModal.vue'
@@ -161,7 +162,7 @@ export default {
       localStorage.setItem('dark_mode', isDark.value)
     }
 
-    const isTui = ref(localStorage.getItem('tui_mode') === 'true')
+    const { isTui } = useTheme()
     const toggleTui = () => {
       isTui.value = !isTui.value
       localStorage.setItem('tui_mode', isTui.value)
