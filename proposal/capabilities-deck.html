@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Capabilities Presentation — Meridian Components RFP MC-2026-0417</title>
+<link href="https://fonts.googleapis.com/css2?family=Tiempos+Headline:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    background: #0a1a0f;
+    color: #e2f0e8;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .deck {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+  }
+
+  .slide {
+    display: none;
+    width: 100%;
+    height: 100%;
+    padding: 60px 80px;
+    position: absolute;
+    top: 0; left: 0;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .slide.active { display: flex; }
+
+  /* Slide types */
+  .slide-title {
+    background: linear-gradient(135deg, #0a1a0f 0%, #0d2b18 60%, #112b1a 100%);
+    text-align: center;
+    align-items: center;
+  }
+
+  .slide-content {
+    background: #0d2018;
+  }
+
+  .slide-accent {
+    background: linear-gradient(135deg, #0f2d1a 0%, #0d2018 100%);
+  }
+
+  .slide-close {
+    background: linear-gradient(135deg, #0a1a0f 0%, #0f3020 100%);
+    text-align: center;
+    align-items: center;
+  }
+
+  /* Typography */
+  .label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #4a7a5a;
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+
+  h1 {
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 1.1;
+    color: #e8f5ee;
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+  }
+
+  h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #e8f5ee;
+    margin-bottom: 32px;
+    letter-spacing: -0.3px;
+  }
+
+  h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #6aab82;
+    margin-bottom: 8px;
+  }
+
+  .subtitle {
+    font-size: 20px;
+    color: #7aab8a;
+    max-width: 600px;
+    line-height: 1.5;
+  }
+
+  p {
+    font-size: 18px;
+    color: #a8c8b4;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  /* Components */
+  .divider {
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #2d9e5f, #1a7a45);
+    margin-bottom: 32px;
+    border-radius: 2px;
+  }
+
+  .tag {
+    display: inline-block;
+    background: #0f2d1a;
+    color: #4dc87a;
+    border: 1px solid #2d9e5f;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 10px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+  }
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 8px;
+  }
+
+  .grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+    margin-top: 8px;
+  }
+
+  .card {
+    background: #0a1a0f;
+    border: 1px solid #1e4d2e;
+    border-radius: 8px;
+    padding: 24px;
+  }
+
+  .card-accent {
+    border-color: #2d9e5f;
+  }
+
+  .number {
+    font-size: 40px;
+    font-weight: 700;
+    color: #2d9e5f;
+    margin-bottom: 4px;
+  }
+
+  .phase-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid #1e4d2e;
+  }
+
+  .phase-row:last-child { border-bottom: none; }
+
+  .phase-num {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, #2d9e5f, #1a7a45);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    flex-shrink: 0;
+    color: #e8f5ee;
+  }
+
+  .phase-info { flex: 1; }
+  .phase-title { font-size: 16px; font-weight: 600; color: #e8f5ee; }
+  .phase-desc { font-size: 14px; color: #6aab82; margin-top: 2px; }
+  .phase-weeks { font-size: 14px; color: #4dc87a; font-weight: 600; white-space: nowrap; }
+
+  .req-row {
+    display: flex;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid #1e4d2e;
+    align-items: flex-start;
+  }
+
+  .req-row:last-child { border-bottom: none; }
+
+  .req-tag {
+    background: #0f2d1a;
+    color: #4dc87a;
+    border: 1px solid #2d9e5f;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 2px 8px;
+    white-space: nowrap;
+    margin-top: 2px;
+  }
+
+  .req-text { font-size: 15px; color: #a8c8b4; line-height: 1.4; }
+  .req-text strong { color: #e8f5ee; }
+
+  .big-stat {
+    text-align: center;
+    padding: 24px;
+  }
+
+  /* Navigation */
+  .nav {
+    position: fixed;
+    bottom: 32px;
+    right: 40px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    z-index: 100;
+  }
+
+  .nav button {
+    background: #1e4d2e;
+    border: none;
+    color: #a8c8b4;
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background 0.2s;
+  }
+
+  .nav button:hover { background: #2d9e5f; color: #e8f5ee; }
+  .nav button:disabled { opacity: 0.3; cursor: default; }
+  .nav button:disabled:hover { background: #1e4d2e; color: #a8c8b4; }
+
+  .slide-counter {
+    font-size: 13px;
+    color: #4a7a5a;
+    min-width: 50px;
+    text-align: center;
+  }
+
+  /* Progress bar */
+  .progress {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #2d9e5f, #4dc87a);
+    transition: width 0.3s;
+    z-index: 100;
+  }
+</style>
+</head>
+<body>
+
+<div class="deck">
+
+  <!-- Slide 1: Title -->
+  <div class="slide slide-title active">
+    <div class="label">Capabilities Presentation · RFP MC-2026-0417</div>
+    <h1>Modernizing Meridian's<br>Inventory Dashboard</h1>
+    <p class="subtitle">A proposal to fix, test, and extend the platform your operations team depends on.</p>
+    <div style="margin-top:40px; font-size:14px; color:#4a7a5a;">[Your Firm Name] · April 2026</div>
+  </div>
+
+  <!-- Slide 2: The situation -->
+  <div class="slide slide-accent">
+    <div class="label">The Situation</div>
+    <h2>Your dashboard works.<br>But it's holding you back.</h2>
+    <div class="divider"></div>
+    <div class="grid-2">
+      <div class="card">
+        <h3>What exists</h3>
+        <p>A Vue/Python inventory dashboard covering stock, orders, spending, and demand across San Francisco, London, and Tokyo.</p>
+      </div>
+      <div class="card card-accent">
+        <h3>What's wrong</h3>
+        <p>8+ defects in the Reports module. No test coverage — so IT can't safely approve changes. No restocking tool. Tokyo team working in English-only views.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 3: Why it matters -->
+  <div class="slide slide-content">
+    <div class="label">Business Impact</div>
+    <h2>Every week of delay has a cost.</h2>
+    <div class="divider"></div>
+    <div class="grid-3">
+      <div class="card big-stat">
+        <div class="number">8+</div>
+        <p style="font-size:14px; color:#6aab82;">unresolved defects in Reports, left by previous vendor</p>
+      </div>
+      <div class="card big-stat">
+        <div class="number">0</div>
+        <p style="font-size:14px; color:#6aab82;">automated tests — IT has blocked changes as a result</p>
+      </div>
+      <div class="card big-stat">
+        <div class="number">12</div>
+        <p style="font-size:14px; color:#6aab82;">Tokyo staff working without native-language support</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 4: Our approach -->
+  <div class="slide slide-content">
+    <div class="label">Our Approach</div>
+    <h2>Foundation first. Then build.</h2>
+    <div class="divider"></div>
+    <p>We don't add new features to a broken system. We fix the foundation, establish test coverage, then extend the platform — in that order.</p>
+    <div style="margin-top: 24px;">
+      <div class="phase-row">
+        <div class="phase-num">1</div>
+        <div class="phase-info">
+          <div class="phase-title">Foundation</div>
+          <div class="phase-desc">Architecture review · Defect audit · Test harness established</div>
+        </div>
+        <div class="phase-weeks">Weeks 1–2</div>
+      </div>
+      <div class="phase-row">
+        <div class="phase-num">2</div>
+        <div class="phase-info">
+          <div class="phase-title">Remediation</div>
+          <div class="phase-desc">All Reports defects fixed · Every fix covered by automated tests</div>
+        </div>
+        <div class="phase-weeks">Weeks 3–6</div>
+      </div>
+      <div class="phase-row">
+        <div class="phase-num">3</div>
+        <div class="phase-info">
+          <div class="phase-title">New Capability</div>
+          <div class="phase-desc">Restocking view · Full test coverage · UI / i18n / dark mode</div>
+        </div>
+        <div class="phase-weeks">Weeks 7–10</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 5: Requirements coverage -->
+  <div class="slide slide-content">
+    <div class="label">Scope Coverage</div>
+    <h2>All four required items. Three desired.</h2>
+    <div class="divider"></div>
+    <div class="req-row">
+      <span class="req-tag">R1</span>
+      <span class="req-text"><strong>Reports remediation</strong> — audit and fix all 8+ defects: filter wiring, i18n gaps, data inconsistencies</span>
+    </div>
+    <div class="req-row">
+      <span class="req-tag">R2</span>
+      <span class="req-text"><strong>Restocking recommendations</strong> — new view: purchase orders driven by stock levels, demand forecast, and operator budget ceiling</span>
+    </div>
+    <div class="req-row">
+      <span class="req-tag">R3</span>
+      <span class="req-text"><strong>Automated browser testing</strong> — end-to-end coverage built alongside every fix, so IT can safely approve future changes</span>
+    </div>
+    <div class="req-row">
+      <span class="req-tag">R4</span>
+      <span class="req-text"><strong>Architecture documentation</strong> — current-state overview written for Meridian IT, not for developers</span>
+    </div>
+    <div style="margin-top:16px;">
+      <span class="tag">D1 UI modernization</span>
+      <span class="tag">D2 i18n expansion</span>
+      <span class="tag">D3 Dark mode</span>
+    </div>
+  </div>
+
+  <!-- Slide 6: Restocking feature detail -->
+  <div class="slide slide-accent">
+    <div class="label">R2 — Restocking Recommendations</div>
+    <h2>The feature your ops team<br>has been waiting for.</h2>
+    <div class="divider"></div>
+    <div class="grid-2">
+      <div>
+        <p>The Restocking view will give your operations team automated purchase order recommendations — no more manual spreadsheet math.</p>
+        <p>Inputs: current stock levels, demand forecast, and an operator-supplied budget ceiling. Output: a prioritized list of what to reorder, how much, and from which warehouse.</p>
+      </div>
+      <div class="card">
+        <h3>Key inputs</h3>
+        <p style="font-size:15px;">· Current stock per SKU per warehouse<br>· Demand forecast (existing API)<br>· Operator budget ceiling<br>· Reorder lead times</p>
+        <h3 style="margin-top:20px;">Key outputs</h3>
+        <p style="font-size:15px;">· Recommended purchase orders<br>· Priority ranking by stockout risk<br>· Budget utilization summary</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 7: Testing approach -->
+  <div class="slide slide-content">
+    <div class="label">R3 — Automated Testing</div>
+    <h2>Tests that unblock your IT team.</h2>
+    <div class="divider"></div>
+    <p>Meridian's IT team blocked further changes because there was no automated coverage. We fix that from day one — not as a final deliverable, but as a practice throughout the engagement.</p>
+    <div class="grid-2" style="margin-top:24px;">
+      <div class="card">
+        <h3>Our approach</h3>
+        <p style="font-size:15px;">Browser-level end-to-end tests using Playwright. Every defect fix gets a test. Every new feature gets coverage before we close the milestone.</p>
+      </div>
+      <div class="card card-accent">
+        <h3>What IT gets</h3>
+        <p style="font-size:15px;">A running test suite against critical user flows. Future changes can be reviewed with confidence that regressions will be caught.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 8: Team -->
+  <div class="slide slide-content">
+    <div class="label">Our Team</div>
+    <h2>Two senior engineers.<br>Full engagement.</h2>
+    <div class="divider"></div>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Frontend specialist</h3>
+        <p>Vue 3 / Composition API. Owns the Reports remediation, Restocking view UI, i18n, and browser test suite.</p>
+      </div>
+      <div class="card">
+        <h3>Backend specialist</h3>
+        <p>Python / FastAPI. Owns API patterns, data layer, Restocking recommendation logic, and architecture documentation.</p>
+      </div>
+    </div>
+    <p style="margin-top:32px; font-size:15px; color:#4a7a5a;">Both engineers are on this engagement full-time for 10 weeks. No context switching, no handoffs mid-engagement.</p>
+  </div>
+
+  <!-- Slide 9: Timeline summary -->
+  <div class="slide slide-accent">
+    <div class="label">Timeline</div>
+    <h2>10 weeks. Three milestones.<br>Full cost certainty.</h2>
+    <div class="divider"></div>
+    <div class="grid-3">
+      <div class="card big-stat">
+        <div class="number">2</div>
+        <p style="font-size:14px; color:#6aab82;">weeks to first milestone — architecture doc + defect list confirmed</p>
+      </div>
+      <div class="card big-stat">
+        <div class="number">6</div>
+        <p style="font-size:14px; color:#6aab82;">weeks to Reports fully fixed and tested</p>
+      </div>
+      <div class="card big-stat">
+        <div class="number">10</div>
+        <p style="font-size:14px; color:#6aab82;">weeks to Restocking live and engagement closed</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 10: Pricing -->
+  <div class="slide slide-content">
+    <div class="label">Pricing</div>
+    <h2>Fixed fee. Milestone payments.<br>No surprises.</h2>
+    <div class="divider"></div>
+    <div class="req-row">
+      <span class="req-tag">Ph 1</span>
+      <span class="req-text"><strong>Foundation</strong> — architecture review, defect audit, test harness</span>
+      <span style="color:#4dc87a; font-weight:600; white-space:nowrap; margin-left:auto; padding-left:24px;">30,000 PLN <span style="color:#4a7a5a; font-size:13px;">/ ~$7,500</span></span>
+    </div>
+    <div class="req-row">
+      <span class="req-tag">Ph 2</span>
+      <span class="req-text"><strong>Remediation</strong> — all Reports defects fixed and tested</span>
+      <span style="color:#4dc87a; font-weight:600; white-space:nowrap; margin-left:auto; padding-left:24px;">60,000 PLN <span style="color:#4a7a5a; font-size:13px;">/ ~$15,000</span></span>
+    </div>
+    <div class="req-row">
+      <span class="req-tag">Ph 3</span>
+      <span class="req-text"><strong>New Capability</strong> — Restocking view, full test coverage, stretch items</span>
+      <span style="color:#4dc87a; font-weight:600; white-space:nowrap; margin-left:auto; padding-left:24px;">60,000 PLN <span style="color:#4a7a5a; font-size:13px;">/ ~$15,000</span></span>
+    </div>
+    <div class="req-row" style="border-top: 1px solid #2d9e5f; margin-top:8px; padding-top:16px;">
+      <span style="font-size:16px; font-weight:700; color:#e8f5ee;">Total fixed fee</span>
+      <span style="color:#2d9e5f; font-size:24px; font-weight:700; white-space:nowrap; margin-left:auto;">150,000 PLN <span style="color:#4a7a5a; font-size:14px; font-weight:400;">/ ~$37,500</span></span>
+    </div>
+    <p style="font-size:13px; color:#4a7a5a; margin-top:16px;">25% at contract signing · 25% at each milestone acceptance · T&M NTE available at 200 PLN/hr/person (~$50/hr) · USD conversion at 4.00 PLN/USD</p>
+  </div>
+
+  <!-- Slide 11: Why us -->
+  <div class="slide slide-accent">
+    <div class="label">Why Us</div>
+    <h2>We've done this before.</h2>
+    <div class="divider"></div>
+    <div class="grid-2">
+      <div>
+        <p>We specialize in inheriting systems from previous vendors — codebases that are functional but incomplete, with thin documentation and no tests.</p>
+        <p>We know how to audit quickly, fix methodically, and leave the system in better shape than we found it.</p>
+      </div>
+      <div class="card">
+        <h3>What sets us apart</h3>
+        <p style="font-size:15px;">· Tests built alongside fixes — not added later<br>· Fixed fee with clear milestone gates<br>· Documentation written for the client's IT team, not for developers<br>· Two senior engineers, no juniors, no context switching</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 12: Next steps -->
+  <div class="slide slide-content">
+    <div class="label">Next Steps</div>
+    <h2>Ready when you are.</h2>
+    <div class="divider"></div>
+    <div class="phase-row">
+      <div class="phase-num">1</div>
+      <div class="phase-info">
+        <div class="phase-title">Questions to procurement by April 28</div>
+        <div class="phase-desc">We have 3–4 clarifying questions on scope — submitted per RFP §6</div>
+      </div>
+    </div>
+    <div class="phase-row">
+      <div class="phase-num">2</div>
+      <div class="phase-info">
+        <div class="phase-title">Proposal submitted May 8</div>
+        <div class="phase-desc">Full proposal package including executive summary, technical approach, timeline, and pricing</div>
+      </div>
+    </div>
+    <div class="phase-row">
+      <div class="phase-num">3</div>
+      <div class="phase-info">
+        <div class="phase-title">Kickoff within 3 days of contract</div>
+        <div class="phase-desc">Codebase access, issue list confirmation, team introductions</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 13: Close -->
+  <div class="slide slide-close">
+    <div class="label">Thank you</div>
+    <h1>Let's fix it.<br>Then build it.</h1>
+    <p class="subtitle" style="margin-top:16px;">[Your Firm Name] · RFP MC-2026-0417</p>
+    <p style="margin-top:32px; font-size:14px; color:#4a7a5a;">[contact@yourfirm.example] · [+48 xxx xxx xxx]</p>
+  </div>
+
+</div>
+
+<!-- Navigation -->
+<div class="nav">
+  <button id="prev" onclick="changeSlide(-1)" disabled>&#8592;</button>
+  <span class="slide-counter" id="counter">1 / 13</span>
+  <button id="next" onclick="changeSlide(1)">&#8594;</button>
+</div>
+
+<div class="progress" id="progress" style="width: 7.69%"></div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  let current = 0;
+
+  function changeSlide(dir) {
+    slides[current].classList.remove('active');
+    current = Math.max(0, Math.min(slides.length - 1, current + dir));
+    slides[current].classList.add('active');
+    document.getElementById('counter').textContent = `${current + 1} / ${slides.length}`;
+    document.getElementById('prev').disabled = current === 0;
+    document.getElementById('next').disabled = current === slides.length - 1;
+    document.getElementById('progress').style.width = `${((current + 1) / slides.length) * 100}%`;
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') changeSlide(1);
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') changeSlide(-1);
+  });
+</script>
+</body>
+</html>
