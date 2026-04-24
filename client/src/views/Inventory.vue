@@ -337,3 +337,11 @@ export default {
   background: #eff6ff !important;
 }
 </style>
+
+<style>
+.dark .inventory .search-wrapper input { background: #0f172a; border-color: #475569; color: #f1f5f9; }
+.dark .inventory th { background: #0f172a; color: #94a3b8; border-color: #334155; }
+.dark .inventory td { color: #cbd5e1; border-color: #334155; }
+.dark .inventory .clickable-row:hover { background: #1e3a5f !important; }
+.dark .inventory .loading { color: #94a3b8; }
+</style>

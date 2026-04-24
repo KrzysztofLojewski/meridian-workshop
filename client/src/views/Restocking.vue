@@ -452,3 +452,21 @@ export default {
 .loading { text-align: center; padding: 3rem; color: #64748b; }
 .error { background: #fee2e2; color: #991b1b; padding: 1rem; border-radius: 8px; }
 </style>
+
+<style>
+.dark .restocking .card { background: #1e293b; }
+.dark .restocking .summary-bar { background: #1e293b; box-shadow: 0 1px 3px rgba(0,0,0,0.4); }
+.dark .restocking .summary-label { color: #94a3b8; }
+.dark .restocking .summary-value { color: #f1f5f9; }
+.dark .restocking .budget-label  { color: #94a3b8; }
+.dark .restocking .budget-input-wrapper { background: #0f172a; border-color: #475569; }
+.dark .restocking .budget-prefix  { background: #1e293b; border-color: #475569; color: #94a3b8; }
+.dark .restocking .budget-input   { background: #0f172a; color: #f1f5f9; }
+.dark .restocking .restock-table th { background: #0f172a; color: #94a3b8; border-color: #334155; }
+.dark .restocking .restock-table td { color: #cbd5e1; border-color: #334155; }
+.dark .restocking .restock-table tr:hover { background: #334155; }
+.dark .restocking .empty-state { background: #1e293b; }
+.dark .restocking .empty-state h3 { color: #f1f5f9; }
+.dark .restocking .empty-state p  { color: #94a3b8; }
+.dark .restocking .trend.stable   { color: #94a3b8; }
+</style>

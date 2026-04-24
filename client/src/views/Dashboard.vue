@@ -1269,3 +1269,54 @@ export default {
   box-shadow: 0 2px 4px rgba(100, 116, 139, 0.3);
 }
 </style>
+
+<style>
+.dark .kpi-card {
+  background: #1e293b;
+  border-color: #334155;
+}
+.dark .kpi-label { color: #94a3b8; }
+.dark .kpi-value { color: #f1f5f9; }
+.dark .kpi-goal  { color: #94a3b8; }
+.dark .kpi-progress-bar { background: #334155; }
+.dark .section-title { color: #94a3b8; }
+.dark .header-meta   { color: #94a3b8; }
+
+/* chart cards */
+.dark .chart-card {
+  background: #1e293b;
+  border-color: #334155;
+}
+.dark .chart-card .card-header,
+.dark .chart-card .card-title { color: #f1f5f9; }
+
+/* order health stats */
+.dark .stat-row { border-color: #334155; }
+.dark .stat-label-text { color: #94a3b8; }
+.dark .stat-value-text { color: #f1f5f9; }
+
+/* h-bars (inventory by category) */
+.dark .h-bar-bg { background: #334155; }
+
+/* legend */
+.dark .legend-label { color: #94a3b8; }
+
+/* tables inside dashboard */
+.dark .shortages-table th { background: #0f172a; color: #94a3b8; border-color: #334155; }
+.dark .shortages-table td { color: #cbd5e1; border-color: #334155; }
+.dark .shortages-table tr:hover { background: #334155; }
+
+/* top products */
+.dark .top-products-table th { background: #0f172a; color: #94a3b8; border-color: #334155; }
+.dark .top-products-table td { color: #cbd5e1; border-color: #334155; }
+.dark .top-products-table tr:hover { background: #334155; }
+
+/* monthly bars */
+.dark .bar-bg { background: #334155; }
+.dark .bar-month { color: #94a3b8; }
+.dark .bar-count { color: #94a3b8; }
+
+/* donut center text */
+.dark .donut-total-label { color: #94a3b8; }
+.dark .donut-total-value { color: #f1f5f9; }
+</style>

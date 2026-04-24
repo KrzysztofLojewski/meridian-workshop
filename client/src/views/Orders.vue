@@ -277,3 +277,14 @@ export default {
   color: #64748b;
 }
 </style>
+
+<style>
+.dark .orders .card { background: #1e293b; border-color: #334155; }
+.dark .orders th { background: #0f172a; color: #94a3b8; border-color: #334155; }
+.dark .orders td { color: #cbd5e1; border-color: #334155; }
+.dark .orders tbody tr:hover { background: #334155; }
+.dark .orders .stat-card { background: #1e293b; border-color: #334155; }
+.dark .orders .stat-value { color: #f1f5f9; }
+.dark .orders .stat-label { color: #94a3b8; }
+.dark .orders .item-meta   { color: #94a3b8; }
+</style>
