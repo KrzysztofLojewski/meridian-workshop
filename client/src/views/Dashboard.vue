@@ -85,19 +85,19 @@
               <!-- Left: Donut Chart -->
               <div class="order-health-chart">
                 <svg viewBox="0 0 200 200" class="donut-svg-compact">
-                  <circle cx="100" cy="100" r="65" fill="none" stroke="#e2e8f0" stroke-width="25"/>
-                  <circle cx="100" cy="100" r="65" fill="none" stroke="#10b981" stroke-width="25"
+                  <circle cx="100" cy="100" r="65" fill="none" :stroke="isTui ? '#001a00' : '#e2e8f0'" stroke-width="25"/>
+                  <circle cx="100" cy="100" r="65" fill="none" :stroke="isTui ? '#00ff41' : '#10b981'" stroke-width="25"
                     :stroke-dasharray="`${getCircleSegment(statusData.delivered)} 408`"
                     stroke-dashoffset="0" transform="rotate(-90 100 100)"/>
-                  <circle cx="100" cy="100" r="65" fill="none" stroke="#3b82f6" stroke-width="25"
+                  <circle cx="100" cy="100" r="65" fill="none" :stroke="isTui ? '#00cc33' : '#3b82f6'" stroke-width="25"
                     :stroke-dasharray="`${getCircleSegment(statusData.shipped)} 408`"
                     :stroke-dashoffset="`-${getCircleSegment(statusData.delivered)}`"
                     transform="rotate(-90 100 100)"/>
-                  <circle cx="100" cy="100" r="65" fill="none" stroke="#f59e0b" stroke-width="25"
+                  <circle cx="100" cy="100" r="65" fill="none" :stroke="isTui ? '#009922' : '#f59e0b'" stroke-width="25"
                     :stroke-dasharray="`${getCircleSegment(statusData.processing)} 408`"
                     :stroke-dashoffset="`-${getCircleSegment(statusData.delivered) + getCircleSegment(statusData.shipped)}`"
                     transform="rotate(-90 100 100)"/>
-                  <circle cx="100" cy="100" r="65" fill="none" stroke="#ef4444" stroke-width="25"
+                  <circle cx="100" cy="100" r="65" fill="none" :stroke="isTui ? '#006611' : '#ef4444'" stroke-width="25"
                     :stroke-dasharray="`${getCircleSegment(statusData.backordered)} 408`"
                     :stroke-dashoffset="`-${getCircleSegment(statusData.delivered) + getCircleSegment(statusData.shipped) + getCircleSegment(statusData.processing)}`"
                     transform="rotate(-90 100 100)"/>
@@ -105,10 +105,10 @@
                   <text x="100" y="120" text-anchor="middle" class="donut-center-value">{{ orderHealthMetrics.totalOrders }}</text>
                 </svg>
                 <div class="donut-legend-compact">
-                  <div class="legend-item-compact"><span class="legend-dot" style="background: #10b981"></span>{{ t('status.delivered') }}</div>
-                  <div class="legend-item-compact"><span class="legend-dot" style="background: #3b82f6"></span>{{ t('status.shipped') }}</div>
-                  <div class="legend-item-compact"><span class="legend-dot" style="background: #f59e0b"></span>{{ t('status.processing') }}</div>
-                  <div class="legend-item-compact"><span class="legend-dot" style="background: #ef4444"></span>{{ t('status.backordered') }}</div>
+                  <div class="legend-item-compact"><span class="legend-dot" :style="{ background: isTui ? '#00ff41' : '#10b981' }"></span>{{ t('status.delivered') }}</div>
+                  <div class="legend-item-compact"><span class="legend-dot" :style="{ background: isTui ? '#00cc33' : '#3b82f6' }"></span>{{ t('status.shipped') }}</div>
+                  <div class="legend-item-compact"><span class="legend-dot" :style="{ background: isTui ? '#009922' : '#f59e0b' }"></span>{{ t('status.processing') }}</div>
+                  <div class="legend-item-compact"><span class="legend-dot" :style="{ background: isTui ? '#006611' : '#ef4444' }"></span>{{ t('status.backordered') }}</div>
                 </div>
               </div>
 
@@ -301,6 +301,7 @@ import { ref, onMounted, computed, watch } from 'vue'
 import { api } from '../api'
 import { useFilters } from '../composables/useFilters'
 import { useI18n } from '../composables/useI18n'
+import { useTheme } from '../composables/useTheme'
 import { formatCurrency } from '../utils/currency'
 import ProductDetailModal from '../components/ProductDetailModal.vue'
 import BacklogDetailModal from '../components/BacklogDetailModal.vue'
@@ -313,6 +314,7 @@ export default {
   },
   setup() {
     const { t, currentCurrency, translateProductName, translateWarehouse } = useI18n()
+    const { isTui } = useTheme()
     const loading = ref(true)
     const error = ref(null)
     const summary = ref({})
@@ -408,8 +410,7 @@ export default {
       // Filter inventory items to only include those with orders in the selected period
       const categoryMap = {}
 
-      // Use a single neutral slate/gray color for all categories
-      const singleColor = '#64748b' // Neutral slate gray color
+      const singleColor = isTui.value ? '#00ff41' : '#64748b'
 
       // Get SKUs from orders in the filtered time period
       const orderedSkus = new Set()
@@ -681,6 +682,7 @@ export default {
 
     return {
       t,
+      isTui,
       loading,
       error,
       summary,
@@ -1268,4 +1270,115 @@ export default {
   transform: translateY(-1px);
   box-shadow: 0 2px 4px rgba(100, 116, 139, 0.3);
 }
+</style>
+
+<style>
+.dark .kpi-card {
+  background: #1e293b;
+  border-color: #334155;
+}
+.dark .kpi-label { color: #94a3b8; }
+.dark .kpi-value { color: #f1f5f9; }
+.dark .kpi-goal  { color: #94a3b8; }
+.dark .kpi-progress-bar { background: #334155; }
+.dark .section-title { color: #94a3b8; }
+.dark .header-meta   { color: #94a3b8; }
+
+/* chart cards */
+.dark .chart-card {
+  background: #1e293b;
+  border-color: #334155;
+}
+.dark .chart-card .card-header,
+.dark .chart-card .card-title { color: #f1f5f9; }
+
+/* order health stats */
+.dark .stat-row { border-color: #334155; }
+.dark .stat-label-text { color: #94a3b8; }
+.dark .stat-value-text { color: #f1f5f9; }
+
+/* h-bars (inventory by category) */
+.dark .h-bar-bg { background: #334155; }
+
+/* legend */
+.dark .legend-label { color: #94a3b8; }
+
+/* tables inside dashboard */
+.dark .shortages-table th { background: #0f172a; color: #94a3b8; border-color: #334155; }
+.dark .shortages-table td { color: #cbd5e1; border-color: #334155; }
+.dark .shortages-table tr:hover { background: #334155; }
+
+/* top products */
+.dark .top-products-table th { background: #0f172a; color: #94a3b8; border-color: #334155; }
+.dark .top-products-table td { color: #cbd5e1; border-color: #334155; }
+.dark .top-products-table tr:hover { background: #334155; }
+
+/* monthly bars */
+.dark .bar-bg { background: #334155; }
+.dark .bar-month { color: #94a3b8; }
+.dark .bar-count { color: #94a3b8; }
+
+/* donut center text */
+.dark .donut-center-label { fill: #94a3b8; }
+.dark .donut-center-value { fill: #f1f5f9; }
+.dark .legend-item-compact { color: #94a3b8; }
+.dark .health-metric-label { color: #94a3b8 !important; }
+.dark .health-metric-value { color: #f1f5f9 !important; }
+</style>
+
+<style>
+/* Dashboard remaining fixes */
+.dark .kpi-card { background: #1e293b !important; }
+.dark .section-title { color: #94a3b8 !important; }
+.dark .kpi-progress-bar { background: #334155 !important; }
+.dark .order-health-container .chart-card { background: #1e293b !important; }
+.dark .bar-month { color: #94a3b8 !important; }
+.dark .bar-count { color: #94a3b8 !important; }
+.dark .monthly-bar-bg { background: #334155 !important; }
+.dark .h-bar-bg { background: #334155 !important; }
+.dark .category-name { color: #94a3b8 !important; }
+.dark .category-value-label { color: #f1f5f9 !important; }
+.dark .shortages-table th, .dark .top-products-table th { background: #0f172a !important; color: #94a3b8 !important; border-color: #334155 !important; }
+.dark .shortages-table td, .dark .top-products-table td { color: #cbd5e1 !important; border-color: #334155 !important; }
+.dark .shortages-table tr:hover, .dark .top-products-table tr:hover { background: #334155 !important; }
+.dark .po-form-section, .dark .po-form input, .dark .po-form select { background: #0f172a !important; color: #f1f5f9 !important; border-color: #475569 !important; }
+.dark .po-form label { color: #94a3b8 !important; }
+.dark .po-history-item { background: #0f172a !important; border-color: #334155 !important; }
+.dark .po-item-name { color: #f1f5f9 !important; }
+.dark .po-item-detail { color: #94a3b8 !important; }
+</style>
+
+<style>
+.tui .kpi-card { background: #000000 !important; border-color: #00ff41 !important; border-radius: 0 !important; box-shadow: none !important; }
+.tui .kpi-label { color: #00aa2a !important; }
+.tui .kpi-value { color: #00ff41 !important; }
+.tui .kpi-goal  { color: #00aa2a !important; }
+.tui .kpi-progress-bar { background: #001a00 !important; }
+.tui .kpi-progress      { background: #00ff41 !important; border-radius: 0 !important; }
+.tui .kpi-progress.success { background: #00ff41 !important; }
+/* horizontal inventory bars */
+.tui .h-bar             { background: #00ff41 !important; border-radius: 0 !important; }
+.tui .h-bar-container   { background: #001a00 !important; border-radius: 0 !important; }
+.tui .h-bar-label       { color: #00aa2a !important; }
+.tui .h-bar-value       { color: #000000 !important; }
+.tui .section-title, .tui .header-meta { color: #00aa2a !important; }
+.tui .chart-card { background: #000000 !important; border-color: #00ff41 !important; border-radius: 0 !important; box-shadow: none !important; }
+.tui .chart-card .card-title { color: #00ff41 !important; }
+.tui .legend-item-compact { color: #00aa2a !important; }
+.tui .donut-center-label { fill: #00aa2a !important; }
+.tui .donut-center-value { fill: #00ff41 !important; }
+.tui .health-metric-label { color: #00aa2a !important; }
+.tui .health-metric-value { color: #00ff41 !important; }
+.tui .shortages-table th, .tui .top-products-table th { background: #000000 !important; color: #00aa2a !important; border-color: #00ff41 !important; }
+.tui .shortages-table td, .tui .top-products-table td { color: #00ff41 !important; border-color: #00ff41 !important; }
+.tui .shortages-table tr:hover, .tui .top-products-table tr:hover { background: #001a00 !important; }
+.tui .bar-bg, .tui .monthly-bar-bg, .tui .h-bar-bg { background: #001a00 !important; }
+.tui .bar-month, .tui .bar-count { color: #00aa2a !important; }
+.tui .category-name { color: #00aa2a !important; }
+.tui .category-value-label { color: #00ff41 !important; }
+.tui .po-form-section, .tui .po-form input, .tui .po-form select { background: #000000 !important; color: #00ff41 !important; border-color: #00ff41 !important; border-radius: 0 !important; }
+.tui .po-form label { color: #00aa2a !important; }
+.tui .po-history-item { background: #000000 !important; border-color: #00ff41 !important; border-radius: 0 !important; }
+.tui .po-item-name { color: #00ff41 !important; }
+.tui .po-item-detail { color: #00aa2a !important; }
 </style>

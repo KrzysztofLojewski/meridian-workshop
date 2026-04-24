@@ -181,3 +181,47 @@ const selectLanguage = (locale) => {
   flex-shrink: 0;
 }
 </style>
+
+<style>
+.dark .language-switcher-btn {
+  background: #1e293b;
+  border-color: #475569;
+  color: #f1f5f9;
+}
+.dark .language-switcher-btn:hover { background: #334155; border-color: #64748b; }
+.dark .language-dropdown {
+  background: #1e293b;
+  border-color: #334155;
+}
+.dark .language-option { color: #cbd5e1; }
+.dark .language-option:hover { background: #334155; }
+.dark .language-option.active { background: #1e3a5f; color: #60a5fa; }
+</style>
+
+<style>
+.dark .language-switcher-btn         { background: #1e293b !important; border-color: #475569 !important; color: #f1f5f9 !important; }
+.dark .language-dropdown             { background: #1e293b !important; border-color: #334155 !important; }
+.dark .language-option               { color: #cbd5e1 !important; }
+.dark .language-option:hover         { background: #334155 !important; }
+.dark .language-option.active        { background: #1e3a5f !important; color: #60a5fa !important; }
+</style>
+
+<style>
+.dark .language-button               { background: #1e293b !important; border-color: #475569 !important; color: #f1f5f9 !important; }
+.dark .language-button:hover         { background: #334155 !important; }
+.dark .language-label                { color: #f1f5f9 !important; }
+.dark .dropdown-menu                 { background: #1e293b !important; border-color: #334155 !important; }
+.dark .dropdown-item                 { color: #cbd5e1 !important; }
+.dark .dropdown-item:hover           { background: #334155 !important; }
+.dark .dropdown-item.active          { background: #1e3a5f !important; color: #60a5fa !important; }
+</style>
+
+<style>
+.tui .language-button, .tui .language-switcher-btn { background: #000000 !important; border-color: #00ff41 !important; color: #00ff41 !important; border-radius: 0 !important; }
+.tui .language-button:hover { background: #001a00 !important; }
+.tui .language-label  { color: #00ff41 !important; }
+.tui .dropdown-menu, .tui .language-dropdown { background: #000000 !important; border-color: #00ff41 !important; border-radius: 0 !important; }
+.tui .dropdown-item, .tui .language-option { color: #00ff41 !important; }
+.tui .dropdown-item:hover, .tui .language-option:hover { background: #001a00 !important; }
+.tui .dropdown-item.active, .tui .language-option.active { background: #00ff41 !important; color: #000000 !important; }
+</style>

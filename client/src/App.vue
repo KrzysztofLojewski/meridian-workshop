@@ -1,5 +1,5 @@
 <template>
-  <div class="app">
+  <div class="app" :class="{ dark: isDark, tui: isTui }">
     <header class="top-nav">
       <div class="nav-container">
         <div class="logo">
@@ -23,10 +23,19 @@
             {{ t('nav.demandForecast') }}
           </router-link>
           <router-link to="/reports" :class="{ active: $route.path === '/reports' }">
-            Reports
+            {{ t('nav.reports') }}
+          </router-link>
+          <router-link to="/restocking" :class="{ active: $route.path === '/restocking' }">
+            {{ t('nav.restocking') }}
           </router-link>
         </nav>
         <LanguageSwitcher />
+        <button v-if="!isTui" class="dark-toggle" @click="toggleDark" :title="isDark ? 'Switch to light mode' : 'Switch to dark mode'">
+          {{ isDark ? '☀️' : '🌙' }}
+        </button>
+        <button class="tui-toggle" @click="toggleTui" :title="isTui ? 'Disable TUI mode' : 'Enable TUI mode'">
+          {{ isTui ? '[X]' : '>_' }}
+        </button>
         <ProfileMenu
           @show-profile-details="showProfileDetails = true"
           @show-tasks="showTasks = true"
@@ -55,10 +64,11 @@
 </template>
 
 <script>
-import { ref, onMounted, computed } from 'vue'
+import { ref, onMounted, watch, computed } from 'vue'
 import { api } from './api'
 import { useAuth } from './composables/useAuth'
 import { useI18n } from './composables/useI18n'
+import { useTheme } from './composables/useTheme'
 import FilterBar from './components/FilterBar.vue'
 import ProfileMenu from './components/ProfileMenu.vue'
 import ProfileDetailsModal from './components/ProfileDetailsModal.vue'
@@ -146,10 +156,37 @@ export default {
       }
     }
 
-    onMounted(loadTasks)
+    const isDark = ref(localStorage.getItem('dark_mode') === 'true' || localStorage.getItem('tui_mode') === 'true')
+    const toggleDark = () => {
+      isDark.value = !isDark.value
+      localStorage.setItem('dark_mode', isDark.value)
+    }
+
+    const { isTui } = useTheme()
+    const toggleTui = () => {
+      isTui.value = !isTui.value
+      localStorage.setItem('tui_mode', isTui.value)
+      // TUI uses dark colours as its base — force dark on when entering TUI
+      if (isTui.value && !isDark.value) {
+        isDark.value = true
+        localStorage.setItem('dark_mode', 'true')
+      }
+    }
+
+    // Teleported modals sit outside the .app div, so apply theme classes to body too
+    const syncBodyClasses = () => {
+      document.body.classList.toggle('dark', isDark.value)
+      document.body.classList.toggle('tui', isTui.value)
+    }
+    watch([isDark, isTui], syncBodyClasses)
+    onMounted(() => { loadTasks(); syncBodyClasses() })
 
     return {
       t,
+      isDark,
+      toggleDark,
+      isTui,
+      toggleTui,
       showProfileDetails,
       showTasks,
       tasks,
@@ -162,6 +199,57 @@ export default {
 </script>
 
 <style>
+:root {
+  --bg-page: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-surface-alt: #f8fafc;
+  --bg-hover: #f1f5f9;
+  --border: #e2e8f0;
+  --border-strong: #cbd5e1;
+  --text-primary: #0f172a;
+  --text-secondary: #64748b;
+  --text-body: #334155;
+  --text-muted: #475569;
+  --nav-active-bg: #eff6ff;
+  --nav-active-color: #2563eb;
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.dark {
+  --bg-page: #0f172a;
+  --bg-surface: #1e293b;
+  --bg-surface-alt: #0f172a;
+  --bg-hover: #334155;
+  --border: #334155;
+  --border-strong: #475569;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-body: #cbd5e1;
+  --text-muted: #94a3b8;
+  --nav-active-bg: #1e3a5f;
+  --nav-active-color: #60a5fa;
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.tui {
+  --bg-page: #000000;
+  --bg-surface: #000000;
+  --bg-surface-alt: #000000;
+  --bg-hover: #001a00;
+  --border: #00ff41;
+  --border-strong: #00ff41;
+  --text-primary: #00ff41;
+  --text-secondary: #00aa2a;
+  --text-body: #00ff41;
+  --text-muted: #00aa2a;
+  --nav-active-bg: #00ff41;
+  --nav-active-color: #000000;
+  --shadow-sm: none;
+  --shadow-md: none;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -170,8 +258,8 @@ export default {
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  background: #f8fafc;
-  color: #1e293b;
+  background: var(--bg-page);
+  color: var(--text-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -180,12 +268,14 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background: var(--bg-page);
+  color: var(--text-primary);
 }
 
 .top-nav {
-  background: #ffffff;
-  border-bottom: 1px solid #e2e8f0;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -218,16 +308,16 @@ body {
 .logo h1 {
   font-size: 1.375rem;
   font-weight: 700;
-  color: #0f172a;
+  color: var(--text-primary);
   letter-spacing: -0.025em;
 }
 
 .subtitle {
   font-size: 0.813rem;
-  color: #64748b;
+  color: var(--text-secondary);
   font-weight: 400;
   padding-left: 0.75rem;
-  border-left: 1px solid #e2e8f0;
+  border-left: 1px solid var(--border);
 }
 
 .nav-tabs {
@@ -237,7 +327,7 @@ body {
 
 .nav-tabs a {
   padding: 0.625rem 1.25rem;
-  color: #64748b;
+  color: var(--text-secondary);
   text-decoration: none;
   font-weight: 500;
   font-size: 0.938rem;
@@ -247,13 +337,13 @@ body {
 }
 
 .nav-tabs a:hover {
-  color: #0f172a;
-  background: #f1f5f9;
+  color: var(--text-primary);
+  background: var(--bg-hover);
 }
 
 .nav-tabs a.active {
-  color: #2563eb;
-  background: #eff6ff;
+  color: var(--nav-active-color);
+  background: var(--nav-active-bg);
 }
 
 .nav-tabs a.active::after {
@@ -263,7 +353,7 @@ body {
   left: 0;
   right: 0;
   height: 2px;
-  background: #2563eb;
+  background: var(--nav-active-color);
 }
 
 .main-content {
@@ -281,13 +371,13 @@ body {
 .page-header h2 {
   font-size: 1.875rem;
   font-weight: 700;
-  color: #0f172a;
+  color: var(--text-primary);
   margin-bottom: 0.375rem;
   letter-spacing: -0.025em;
 }
 
 .page-header p {
-  color: #64748b;
+  color: var(--text-secondary);
   font-size: 0.938rem;
 }
 
@@ -299,20 +389,20 @@ body {
 }
 
 .stat-card {
-  background: white;
+  background: var(--bg-surface);
   padding: 1.25rem;
   border-radius: 10px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--border);
   transition: all 0.2s ease;
 }
 
 .stat-card:hover {
-  border-color: #cbd5e1;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-md);
 }
 
 .stat-label {
-  color: #64748b;
+  color: var(--text-secondary);
   font-size: 0.875rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -323,7 +413,7 @@ body {
 .stat-value {
   font-size: 2.25rem;
   font-weight: 700;
-  color: #0f172a;
+  color: var(--text-primary);
   letter-spacing: -0.025em;
 }
 
@@ -344,10 +434,10 @@ body {
 }
 
 .card {
-  background: white;
+  background: var(--bg-surface);
   border-radius: 10px;
   padding: 1.25rem;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--border);
   margin-bottom: 1.25rem;
 }
 
@@ -357,13 +447,13 @@ body {
   align-items: center;
   margin-bottom: 1rem;
   padding-bottom: 0.875rem;
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1px solid var(--border);
 }
 
 .card-title {
   font-size: 1.125rem;
   font-weight: 700;
-  color: #0f172a;
+  color: var(--text-primary);
   letter-spacing: -0.025em;
 }
 
@@ -377,16 +467,16 @@ table {
 }
 
 thead {
-  background: #f8fafc;
-  border-top: 1px solid #e2e8f0;
-  border-bottom: 1px solid #e2e8f0;
+  background: var(--bg-surface-alt);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
 th {
   text-align: left;
   padding: 0.5rem 0.75rem;
   font-weight: 600;
-  color: #475569;
+  color: var(--text-muted);
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -394,8 +484,8 @@ th {
 
 td {
   padding: 0.5rem 0.75rem;
-  border-top: 1px solid #f1f5f9;
-  color: #334155;
+  border-top: 1px solid var(--border);
+  color: var(--text-body);
   font-size: 0.875rem;
 }
 
@@ -404,7 +494,7 @@ tbody tr {
 }
 
 tbody tr:hover {
-  background: #f8fafc;
+  background: var(--bg-hover);
 }
 
 .badge {
@@ -470,7 +560,7 @@ tbody tr:hover {
 .loading {
   text-align: center;
   padding: 3rem;
-  color: #64748b;
+  color: var(--text-secondary);
   font-size: 0.938rem;
 }
 
@@ -483,4 +573,105 @@ tbody tr:hover {
   margin: 1rem 0;
   font-size: 0.938rem;
 }
+
+.dark-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.4rem 0.6rem;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  transition: background 0.2s;
+}
+
+.dark-toggle:hover {
+  background: var(--bg-hover);
+}
+
+.tui-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.875rem;
+  font-family: 'Courier New', Courier, monospace;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  transition: background 0.2s;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+}
+
+.tui-toggle:hover {
+  background: var(--bg-hover);
+}
+</style>
+
+<style>
+/* ── TUI structural overrides ─────────────────────────────── */
+.tui, .tui * { font-family: 'Courier New', Courier, monospace !important; }
+
+/* Nav */
+.tui .top-nav    { background: #000000 !important; border-bottom: 1px solid #00ff41 !important; box-shadow: none !important; }
+.tui .logo h1    { color: #00ff41 !important; }
+.tui .subtitle   { color: #00aa2a !important; border-left-color: #00ff41 !important; }
+.tui .nav-tabs a { border-radius: 0 !important; color: #00aa2a !important; }
+.tui .nav-tabs a:hover  { background: #001a00 !important; color: #00ff41 !important; }
+.tui .nav-tabs a.active { background: #00ff41 !important; color: #000000 !important; border-radius: 0 !important; }
+.tui .nav-tabs a.active::after { display: none !important; }
+.tui .dark-toggle { border-radius: 0 !important; border-color: #00ff41 !important; color: #00ff41 !important; }
+.tui .dark-toggle:hover { background: #001a00 !important; }
+.tui .tui-toggle  { border-radius: 0 !important; border-color: #00ff41 !important; color: #00ff41 !important; background: #000000 !important; }
+.tui .tui-toggle:hover  { background: #00ff41 !important; color: #000000 !important; }
+
+/* Cards */
+.tui .card       { background: #000000 !important; border: 1px solid #00ff41 !important; border-radius: 0 !important; box-shadow: none !important; }
+.tui .card-header { border-bottom-color: #00ff41 !important; }
+.tui .card-title  { color: #00ff41 !important; }
+
+/* Stat cards */
+.tui .stat-card  { background: #000000 !important; border: 1px solid #00ff41 !important; border-radius: 0 !important; box-shadow: none !important; }
+.tui .stat-card:hover { box-shadow: none !important; border-color: #00ff41 !important; }
+.tui .stat-label { color: #00aa2a !important; }
+.tui .stat-value,
+.tui .stat-card.warning .stat-value,
+.tui .stat-card.success .stat-value,
+.tui .stat-card.danger .stat-value,
+.tui .stat-card.info .stat-value { color: #00ff41 !important; }
+
+/* Tables */
+.tui thead       { background: #000000 !important; border-color: #00ff41 !important; }
+.tui th          { color: #00aa2a !important; }
+.tui td          { color: #00ff41 !important; border-color: #00ff41 !important; }
+.tui tbody tr:hover { background: #001a00 !important; }
+
+/* Badges */
+.tui .badge      { background: #000000 !important; color: #00ff41 !important; border: 1px solid #00ff41 !important; border-radius: 0 !important; }
+
+/* Page headers */
+.tui .page-header h2 { color: #00ff41 !important; }
+.tui .page-header p  { color: #00aa2a !important; }
+
+/* Loading / error */
+.tui .loading { color: #00aa2a !important; }
+.tui .error   { background: #000000 !important; border-color: #00ff41 !important; color: #00ff41 !important; }
+
+/* Native browser tooltips (title=) — can't be styled, but custom tooltip elements */
+.tui [data-tooltip]::after,
+.tui .tooltip,
+.tui .chart-tooltip,
+.tui .hover-label {
+  background: #000000 !important;
+  color: #00ff41 !important;
+  border: 1px solid #00ff41 !important;
+  border-radius: 0 !important;
+  font-family: 'Courier New', Courier, monospace !important;
+  box-shadow: none !important;
+}
+
+/* Bar chart track fills */
+.tui .kpi-progress-bar  { background: #001a00 !important; }
+.tui .kpi-progress      { background: #00ff41 !important; border-radius: 0 !important; }
+.tui .kpi-progress.success { background: #00ff41 !important; }
 </style>

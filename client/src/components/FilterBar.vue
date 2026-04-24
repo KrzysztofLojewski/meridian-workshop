@@ -192,3 +192,48 @@ export default {
   height: 18px;
 }
 </style>
+
+<style>
+.dark .filters-bar {
+  background: #1e293b;
+  border-bottom-color: #334155;
+}
+.dark .filter-group label {
+  color: #94a3b8;
+}
+.dark .filter-select {
+  background: #0f172a;
+  color: #f1f5f9;
+  border-color: #475569;
+}
+.dark .filter-select:hover {
+  border-color: #64748b;
+}
+.dark .reset-filters-btn {
+  background: #0f172a;
+  border-color: #334155;
+  color: #94a3b8;
+}
+.dark .reset-filters-btn:hover:not(:disabled) {
+  background: #334155;
+  color: #f1f5f9;
+}
+</style>
+
+<style>
+.dark .filter-select option          { background: #1e293b; color: #f1f5f9; }
+.dark .filter-group label            { color: #94a3b8 !important; }
+.dark .filter-select                 { background: #0f172a !important; color: #f1f5f9 !important; border-color: #475569 !important; }
+.dark .reset-filters-btn             { background: #0f172a !important; border-color: #475569 !important; color: #94a3b8 !important; }
+.dark .reset-filters-btn:hover:not(:disabled) { background: #334155 !important; color: #f1f5f9 !important; }
+</style>
+
+<style>
+.tui .filters-bar          { background: #000000 !important; border-bottom-color: #00ff41 !important; }
+.tui .filter-group label   { color: #00aa2a !important; }
+.tui .filter-select        { background: #000000 !important; color: #00ff41 !important; border-color: #00ff41 !important; border-radius: 0 !important; }
+.tui .filter-select option { background: #000000; color: #00ff41; }
+.tui .filter-select:hover  { border-color: #00ff41 !important; }
+.tui .reset-filters-btn    { background: #000000 !important; border-color: #00ff41 !important; color: #00aa2a !important; border-radius: 0 !important; }
+.tui .reset-filters-btn:hover:not(:disabled) { background: #00ff41 !important; color: #000000 !important; }
+</style>

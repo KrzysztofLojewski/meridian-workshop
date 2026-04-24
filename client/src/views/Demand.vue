@@ -367,3 +367,59 @@ export default {
   padding: 0.5rem;
 }
 </style>
+
+<style>
+.dark .demand .card { background: #1e293b; border-color: #334155; }
+.dark .demand th { background: #0f172a; color: #94a3b8; border-color: #334155; }
+.dark .demand td { color: #cbd5e1; border-color: #334155; }
+.dark .demand tbody tr:hover { background: #334155; }
+.dark .demand .stat-card { background: #1e293b; border-color: #334155; }
+.dark .demand .stat-value { color: #f1f5f9; }
+.dark .demand .stat-label { color: #94a3b8; }
+.dark .demand .trend-card { background: #1e293b !important; border-color: #334155; }
+.dark .demand .trend-header { border-bottom-color: #334155; }
+.dark .demand .trend-label { color: #94a3b8 !important; }
+.dark .demand .trend-count { color: #f1f5f9 !important; }
+.dark .demand .increasing-card .trend-icon { background: #064e3b; }
+.dark .demand .stable-card    .trend-icon { background: #1e3a5f; }
+.dark .demand .decreasing-card .trend-icon { background: #450a0a; }
+</style>
+
+<style>
+.dark .demand .trend-card .sku-list { background: #0f172a !important; }
+.dark .demand .sku-item { background: #334155 !important; color: #cbd5e1 !important; }
+.dark .demand .forecast-item-name { color: #f1f5f9 !important; }
+.dark .demand .forecast-item-sku  { color: #94a3b8 !important; }
+.dark .demand td strong { color: #f1f5f9 !important; }
+</style>
+
+<style>
+/* trend-item rows inside the cards */
+.dark .demand .trend-item            { background: #0f172a !important; }
+.dark .demand .trend-item:hover      { background: #334155 !important; }
+.dark .demand .item-name             { color: #f1f5f9 !important; }
+.dark .demand .more-items            { color: #94a3b8 !important; }
+.dark .demand .trend-count           { color: #f1f5f9 !important; }
+/* trend icon backgrounds */
+.dark .demand .increasing-card .trend-icon { background: #064e3b !important; }
+.dark .demand .stable-card    .trend-icon  { background: #1e3a5f !important; }
+.dark .demand .decreasing-card .trend-icon { background: #450a0a !important; }
+</style>
+
+<style>
+.tui .demand .trend-card { background: #000000 !important; border-color: #00ff41 !important; border-radius: 0 !important; }
+.tui .demand .trend-header { border-bottom-color: #00ff41 !important; }
+.tui .demand .trend-label { color: #00aa2a !important; }
+.tui .demand .trend-count { color: #00ff41 !important; }
+.tui .demand .increasing-card .trend-icon { background: #000000 !important; border: 1px solid #00ff41; color: #00ff41 !important; }
+.tui .demand .stable-card .trend-icon    { background: #000000 !important; border: 1px solid #00ff41; color: #00ff41 !important; }
+.tui .demand .decreasing-card .trend-icon { background: #000000 !important; border: 1px solid #00ff41; color: #00ff41 !important; }
+.tui .demand .trend-item      { background: #000000 !important; border-radius: 0 !important; }
+.tui .demand .trend-item:hover { background: #001a00 !important; }
+.tui .demand .item-name       { color: #00ff41 !important; }
+.tui .demand .more-items      { color: #00aa2a !important; }
+.tui .demand .card            { background: #000000 !important; border-color: #00ff41 !important; border-radius: 0 !important; }
+.tui .demand th { background: #000000 !important; color: #00aa2a !important; border-color: #00ff41 !important; }
+.tui .demand td { color: #00ff41 !important; border-color: #00ff41 !important; }
+.tui .demand tbody tr:hover { background: #001a00 !important; }
+</style>

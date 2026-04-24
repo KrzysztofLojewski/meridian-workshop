@@ -279,3 +279,72 @@ const handleLogout = () => {
   text-align: center;
 }
 </style>
+
+<style>
+.dark .profile-btn { background: #1e293b; border-color: #475569; }
+.dark .profile-name, .dark .profile-role { color: #f1f5f9; }
+.dark .profile-role { color: #94a3b8; }
+.dark .profile-dropdown {
+  background: #1e293b;
+  border-color: #334155;
+}
+.dark .profile-info-section { border-color: #334155; }
+.dark .profile-full-name { color: #f1f5f9; }
+.dark .profile-email     { color: #94a3b8; }
+.dark .dropdown-item     { color: #cbd5e1; }
+.dark .dropdown-item:hover { background: #334155; }
+.dark .dropdown-divider  { background: #334155; }
+.dark .dropdown-item.logout { color: #f87171; }
+.dark .dropdown-item.logout:hover { background: #3f1a1a; }
+</style>
+
+<style>
+.dark .profile-btn                   { background: #1e293b !important; border-color: #475569 !important; }
+.dark .profile-btn .profile-name     { color: #f1f5f9 !important; }
+.dark .profile-btn .profile-role     { color: #94a3b8 !important; }
+.dark .profile-dropdown              { background: #1e293b !important; border-color: #334155 !important; }
+.dark .profile-info-section          { border-color: #334155 !important; }
+.dark .profile-full-name             { color: #f1f5f9 !important; }
+.dark .profile-email                 { color: #94a3b8 !important; }
+.dark .dropdown-item                 { color: #cbd5e1 !important; }
+.dark .dropdown-item:hover           { background: #334155 !important; }
+.dark .dropdown-divider              { background: #334155 !important; }
+.dark .dropdown-item.logout          { color: #f87171 !important; }
+.dark .dropdown-item.logout:hover    { background: #3f1a1a !important; }
+</style>
+
+<style>
+.dark .profile-button                { background: #1e293b !important; border-color: #475569 !important; }
+.dark .profile-button:hover          { background: #334155 !important; }
+.dark .profile-name                  { color: #f1f5f9 !important; }
+.dark .dropdown-menu                 { background: #1e293b !important; border-color: #334155 !important; }
+.dark .dropdown-header               { background: #0f172a !important; }
+.dark .user-name                     { color: #f1f5f9 !important; }
+.dark .user-email                    { color: #94a3b8 !important; }
+.dark .dropdown-item                 { color: #cbd5e1 !important; }
+.dark .dropdown-item:hover           { background: #334155 !important; }
+.dark .dropdown-divider              { background: #334155 !important; }
+.dark .dropdown-item.logout          { color: #f87171 !important; }
+.dark .dropdown-item.logout:hover    { background: #3f1a1a !important; }
+.dark .task-badge                    { background: #2563eb !important; }
+</style>
+
+<style>
+.tui .profile-btn, .tui .profile-button { background: #000000 !important; border-color: #00ff41 !important; border-radius: 0 !important; }
+.tui .profile-btn:hover, .tui .profile-button:hover { background: #001a00 !important; }
+.tui .profile-name    { color: #00ff41 !important; }
+.tui .profile-role    { color: #00aa2a !important; }
+.tui .profile-dropdown, .tui .dropdown-menu { background: #000000 !important; border-color: #00ff41 !important; border-radius: 0 !important; }
+.tui .dropdown-header { background: #000000 !important; border-bottom-color: #00ff41 !important; }
+.tui .user-name       { color: #00ff41 !important; }
+.tui .user-email      { color: #00aa2a !important; }
+.tui .profile-full-name { color: #00ff41 !important; }
+.tui .profile-email     { color: #00aa2a !important; }
+.tui .dropdown-item   { color: #00ff41 !important; }
+.tui .dropdown-item:hover { background: #001a00 !important; }
+.tui .dropdown-divider { background: #00ff41 !important; }
+.tui .dropdown-item.logout { color: #00ff41 !important; }
+.tui .dropdown-item.logout:hover { background: #00ff41 !important; color: #000000 !important; }
+.tui .task-badge      { background: #000000 !important; border: 1px solid #00ff41 !important; color: #00ff41 !important; }
+.tui .profile-info-section { border-color: #00ff41 !important; }
+</style>

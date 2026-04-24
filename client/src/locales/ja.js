@@ -6,6 +6,8 @@ export default {
     orders: '注文',
     finance: '財務',
     demandForecast: '需要予測',
+    reports: 'レポート',
+    restocking: '補充推奨',
     companyName: '触媒コンポーネンツ',
     subtitle: '在庫管理システム'
   },
@@ -309,6 +311,53 @@ export default {
     english: 'English',
     japanese: '日本語',
     selectLanguage: '言語を選択'
+  },
+
+  // Reports
+  reports: {
+    title: 'パフォーマンスレポート',
+    description: '四半期パフォーマンス指標と月次トレンドを表示',
+    quarterlyPerformance: '四半期パフォーマンス',
+    monthlyRevenueTrend: '月次売上トレンド',
+    monthOverMonth: '前月比分析',
+    totalRevenueYTD: '年初来売上合計',
+    avgMonthlyRevenue: '月次平均売上',
+    totalOrdersYTD: '年初来注文数',
+    bestQuarter: '最高パフォーマンス四半期',
+    quarter: '四半期',
+    totalOrders: '注文数',
+    totalRevenue: '売上合計',
+    avgOrderValue: '平均注文額',
+    fulfillmentRate: '履行率',
+    month: '月',
+    orders: '注文',
+    revenue: '売上',
+    change: '変化',
+    growthRate: '成長率'
+  },
+
+  // Restocking
+  restocking: {
+    title: '補充推奨',
+    description: '発注点を下回るアイテム（需要トレンドと緊急度で優先順位付け）',
+    budgetCeiling: '予算上限',
+    itemsToRestock: '補充必要アイテム',
+    withinBudget: '予算内',
+    totalCost: '合計コスト（予算内）',
+    budgetRemaining: '残余予算',
+    priority: '優先度',
+    onHand: '在庫数',
+    reorderPoint: '発注点',
+    orderQty: '発注数',
+    unitCost: '単価',
+    totalCostCol: '合計コスト',
+    trend: 'トレンド',
+    action: 'アクション',
+    addToOrder: '注文に追加',
+    ordered: '✓ 注文済み',
+    overBudget: '予算超過',
+    allStocked: '全アイテム適切に在庫あり',
+    allStockedDesc: '現在、発注点を下回るアイテムはありません。'
   },
 
   // Common

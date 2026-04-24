@@ -337,3 +337,25 @@ export default {
   background: #eff6ff !important;
 }
 </style>
+
+<style>
+.dark .inventory .search-wrapper input { background: #0f172a; border-color: #475569; color: #f1f5f9; }
+.dark .inventory th { background: #0f172a; color: #94a3b8; border-color: #334155; }
+.dark .inventory td { color: #cbd5e1; border-color: #334155; }
+.dark .inventory .clickable-row:hover { background: #1e3a5f !important; }
+.dark .inventory .loading { color: #94a3b8; }
+</style>
+
+<style>
+.dark .inventory td        { color: #cbd5e1 !important; }
+.dark .inventory td strong { color: #f1f5f9 !important; }
+.dark .inventory .search-wrapper input::placeholder { color: #64748b !important; }
+</style>
+
+<style>
+.tui .inventory .search-wrapper input { background: #000000 !important; border-color: #00ff41 !important; color: #00ff41 !important; border-radius: 0 !important; }
+.tui .inventory .search-wrapper input::placeholder { color: #00aa2a !important; }
+.tui .inventory th { background: #000000 !important; color: #00aa2a !important; border-color: #00ff41 !important; }
+.tui .inventory td { color: #00ff41 !important; border-color: #00ff41 !important; }
+.tui .inventory .clickable-row:hover { background: #001a00 !important; }
+</style>

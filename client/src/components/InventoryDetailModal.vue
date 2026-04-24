@@ -448,3 +448,117 @@ const getSummaryCardClass = () => {
   transform: scale(0.95);
 }
 </style>
+
+<style>
+.dark .modal-overlay { background: rgba(0,0,0,0.7); }
+.dark .modal-content, .dark .modal-panel { background: #1e293b !important; border-color: #334155; }
+.dark .modal-header  { border-bottom-color: #334155; }
+.dark .modal-footer  { border-top-color: #334155; }
+.dark .modal-title, .dark .modal-header h2, .dark .modal-header h3 { color: #f1f5f9 !important; }
+.dark .modal-body label, .dark .detail-label { color: #94a3b8 !important; }
+.dark .modal-body p, .dark .detail-value, .dark .modal-body span { color: #cbd5e1 !important; }
+.dark .info-row, .dark .detail-row { border-bottom-color: #334155 !important; }
+.dark .info-value, .dark .field-value { color: #f1f5f9 !important; background: #0f172a !important; }
+.dark .modal-body input, .dark .modal-body select, .dark .modal-body textarea {
+  background: #0f172a !important; color: #f1f5f9 !important; border-color: #475569 !important;
+}
+.dark .modal-body input::placeholder { color: #64748b !important; }
+.dark .task-item { background: #0f172a !important; border-color: #334155 !important; }
+.dark .task-title { color: #f1f5f9 !important; }
+.dark .task-meta  { color: #94a3b8 !important; }
+.dark .empty-tasks { color: #94a3b8 !important; }
+.dark .section-heading { color: #94a3b8 !important; border-bottom-color: #334155 !important; }
+</style>
+
+<style>
+.dark .modal-backdrop               { background: rgba(0,0,0,0.75) !important; }
+.dark .modal-panel, .dark .modal-box { background: #1e293b !important; }
+.dark .modal-header                 { background: #1e293b !important; border-bottom-color: #334155 !important; }
+.dark .modal-header h2,
+.dark .modal-header h3              { color: #f1f5f9 !important; }
+.dark .detail-section               { border-bottom-color: #334155 !important; }
+.dark .detail-section h4            { color: #94a3b8 !important; }
+.dark .detail-row                   { border-bottom-color: #334155 !important; }
+.dark .detail-label                 { color: #94a3b8 !important; }
+.dark .detail-value                 { color: #f1f5f9 !important; }
+.dark .info-grid .info-item         { background: #0f172a !important; }
+.dark .info-item-label              { color: #94a3b8 !important; }
+.dark .info-item-value              { color: #f1f5f9 !important; }
+.dark .close-btn                    { color: #94a3b8 !important; }
+.dark .close-btn:hover              { background: #334155 !important; color: #f1f5f9 !important; }
+.dark .modal-footer                 { border-top-color: #334155 !important; background: #1e293b !important; }
+</style>
+
+<style>
+.tui .modal-backdrop, .tui .modal-overlay { background: rgba(0,0,0,0.9) !important; }
+.tui .modal-content, .tui .modal-panel, .tui .modal-box { background: #000000 !important; border: 1px solid #00ff41 !important; border-radius: 0 !important; }
+.tui .modal-header  { background: #000000 !important; border-bottom-color: #00ff41 !important; }
+.tui .modal-footer  { background: #000000 !important; border-top-color: #00ff41 !important; }
+.tui .modal-header h2, .tui .modal-header h3, .tui .modal-title { color: #00ff41 !important; }
+.tui .detail-section { border-bottom-color: #00ff41 !important; }
+.tui .detail-section h4 { color: #00aa2a !important; }
+.tui .detail-row    { border-bottom-color: #00ff41 !important; }
+.tui .detail-label, .tui .modal-body label { color: #00aa2a !important; }
+.tui .detail-value, .tui .modal-body p, .tui .modal-body span { color: #00ff41 !important; }
+.tui .info-grid .info-item { background: #000000 !important; border: 1px solid #00ff41 !important; border-radius: 0 !important; }
+.tui .info-item-label { color: #00aa2a !important; }
+.tui .info-item-value { color: #00ff41 !important; }
+.tui .info-value, .tui .field-value { color: #00ff41 !important; background: #000000 !important; border-color: #00ff41 !important; border-radius: 0 !important; }
+.tui .close-btn, .tui .modal-close-btn { color: #00aa2a !important; border-radius: 0 !important; }
+.tui .close-btn:hover, .tui .modal-close-btn:hover { background: #00ff41 !important; color: #000000 !important; }
+.tui .modal-body input, .tui .modal-body select, .tui .modal-body textarea {
+  background: #000000 !important; color: #00ff41 !important; border-color: #00ff41 !important; border-radius: 0 !important;
+}
+.tui .modal-body input::placeholder { color: #00aa2a !important; }
+.tui .section-heading { color: #00aa2a !important; border-bottom-color: #00ff41 !important; }
+</style>
+<style>
+/* ── fix: correct class names + missing dark overrides ─── */
+.dark .modal-container { background: #1e293b !important; border-radius: 12px; box-shadow: 0 20px 50px rgba(0,0,0,0.6) !important; }
+.dark .modal-header { background: #1e293b !important; border-bottom-color: #334155 !important; }
+.dark .modal-footer { background: #1e293b !important; border-top-color: #334155 !important; }
+.dark .modal-title { color: #f1f5f9 !important; }
+.dark .close-button { color: #94a3b8 !important; }
+.dark .close-button:hover { background: #334155 !important; color: #f1f5f9 !important; }
+.dark .btn-secondary { background: #334155 !important; border-color: #475569 !important; color: #cbd5e1 !important; }
+.dark .btn-secondary:hover { background: #475569 !important; }
+.dark .info-label { color: #94a3b8 !important; }
+.dark .info-value { color: #f1f5f9 !important; }
+/* ── fix: correct class names + missing tui overrides ─── */
+.tui .modal-container { background: #000000 !important; border: 1px solid #00ff41 !important; border-radius: 0 !important; box-shadow: none !important; }
+.tui .modal-header { background: #000000 !important; border-bottom-color: #00ff41 !important; }
+.tui .modal-footer { background: #000000 !important; border-top-color: #00ff41 !important; }
+.tui .modal-title { color: #00ff41 !important; }
+.tui .close-button { color: #00aa2a !important; border-radius: 0 !important; }
+.tui .close-button:hover { background: #00ff41 !important; color: #000000 !important; }
+.tui .btn-secondary { background: #000000 !important; border: 1px solid #00ff41 !important; color: #00ff41 !important; border-radius: 0 !important; }
+.tui .btn-secondary:hover { background: #001a00 !important; }
+.tui .info-label { color: #00aa2a !important; }
+.tui .info-value { color: #00ff41 !important; }
+</style>
+<style>
+/* InventoryDetailModal specific */
+.dark .item-header { border-bottom-color: #334155 !important; }
+.dark .item-name { color: #f1f5f9 !important; }
+.dark .item-sku { color: #94a3b8 !important; }
+.dark .stock-badge.success { background: #064e3b !important; color: #6ee7b7 !important; }
+.dark .stock-badge.warning { background: #78350f !important; color: #fcd34d !important; }
+.dark .stock-badge.danger  { background: #450a0a !important; color: #fca5a5 !important; }
+.dark .summary-card { background: #0f172a !important; border-color: #334155 !important; }
+.dark .summary-label { color: #94a3b8 !important; }
+.dark .summary-value { color: #f1f5f9 !important; }
+.dark .summary-subtitle { color: #64748b !important; }
+
+.tui .item-header { border-bottom-color: #00ff41 !important; }
+.tui .item-icon { background: #000000 !important; border: 1px solid #00ff41 !important; border-radius: 0 !important; }
+.tui .item-name { color: #00ff41 !important; }
+.tui .item-sku { color: #00aa2a !important; }
+.tui .stock-badge { background: #000000 !important; border: 1px solid #00ff41 !important; color: #00ff41 !important; border-radius: 0 !important; }
+.tui .summary-card { background: #000000 !important; border-color: #00ff41 !important; border-radius: 0 !important; }
+.tui .summary-card.primary, .tui .summary-card.success-card,
+.tui .summary-card.warning-card, .tui .summary-card.danger-card { background: #000000 !important; border-color: #00ff41 !important; }
+.tui .summary-label { color: #00aa2a !important; }
+.tui .summary-value { color: #00ff41 !important; }
+.tui .summary-subtitle { color: #00aa2a !important; }
+.tui .info-value.total-value { color: #00ff41 !important; }
+</style>

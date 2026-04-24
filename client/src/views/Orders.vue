@@ -277,3 +277,44 @@ export default {
   color: #64748b;
 }
 </style>
+
+<style>
+.dark .orders .card { background: #1e293b; border-color: #334155; }
+.dark .orders th { background: #0f172a; color: #94a3b8; border-color: #334155; }
+.dark .orders td { color: #cbd5e1; border-color: #334155; }
+.dark .orders tbody tr:hover { background: #334155; }
+.dark .orders .stat-card { background: #1e293b; border-color: #334155; }
+.dark .orders .stat-value { color: #f1f5f9; }
+.dark .orders .stat-label { color: #94a3b8; }
+.dark .orders .item-meta   { color: #94a3b8; }
+</style>
+
+<style>
+.dark .orders td strong    { color: #f1f5f9 !important; }
+.dark .orders .order-items { color: #94a3b8 !important; }
+</style>
+
+<style>
+.tui .orders .card { background: #000000 !important; border-color: #00ff41 !important; border-radius: 0 !important; }
+.tui .orders th { background: #000000 !important; color: #00aa2a !important; border-color: #00ff41 !important; }
+.tui .orders td { color: #00ff41 !important; border-color: #00ff41 !important; }
+.tui .orders tbody tr:hover { background: #001a00 !important; }
+.tui .orders .stat-card { background: #000000 !important; border-color: #00ff41 !important; border-radius: 0 !important; }
+.tui .orders .item-meta { color: #00aa2a !important; }
+</style>
+
+<style>
+/* items-dropdown dark/TUI */
+.dark .orders .items-dropdown { background: #1e293b !important; border-color: #334155 !important; box-shadow: 0 4px 12px rgba(0,0,0,0.4) !important; border-radius: 8px; }
+.dark .orders .item-entry { border-bottom-color: #334155 !important; }
+.dark .orders .item-name { color: #f1f5f9 !important; }
+.dark .orders .item-meta { color: #94a3b8 !important; }
+.dark .orders .items-summary { color: #60a5fa !important; }
+
+.tui .orders .items-dropdown { background: #000000 !important; border: 1px solid #00ff41 !important; border-radius: 0 !important; box-shadow: none !important; }
+.tui .orders .item-entry { border-bottom-color: #00ff41 !important; }
+.tui .orders .item-name { color: #00ff41 !important; }
+.tui .orders .item-meta { color: #00aa2a !important; }
+.tui .orders .items-summary { color: #00ff41 !important; }
+.tui .orders .items-summary:hover { color: #00cc33 !important; }
+</style>
