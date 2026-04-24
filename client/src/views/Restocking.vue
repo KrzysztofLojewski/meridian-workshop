@@ -480,3 +480,25 @@ export default {
 .dark .restocking .over-budget-tag { color: #f87171 !important; }
 .dark .restocking .over-budget-text { color: #64748b !important; }
 </style>
+
+<style>
+.tui .restocking .summary-bar { background: #000000 !important; border: 1px solid #00ff41 !important; border-radius: 0 !important; box-shadow: none !important; }
+.tui .restocking .summary-label { color: #00aa2a !important; }
+.tui .restocking .summary-value { color: #00ff41 !important; }
+.tui .restocking .budget-label  { color: #00aa2a !important; }
+.tui .restocking .budget-input-wrapper { background: #000000 !important; border-color: #00ff41 !important; border-radius: 0 !important; }
+.tui .restocking .budget-prefix { background: #000000 !important; border-color: #00ff41 !important; color: #00aa2a !important; }
+.tui .restocking .budget-input  { background: #000000 !important; color: #00ff41 !important; }
+.tui .restocking .card { background: #000000 !important; border-color: #00ff41 !important; border-radius: 0 !important; }
+.tui .restocking .restock-table th { background: #000000 !important; color: #00aa2a !important; border-color: #00ff41 !important; }
+.tui .restocking .restock-table th.sortable:hover { background: #001a00 !important; }
+.tui .restocking .restock-table td { color: #00ff41 !important; border-color: #00ff41 !important; }
+.tui .restocking .restock-table tr:hover { background: #001a00 !important; }
+.tui .restocking .empty-state { background: #000000 !important; border-radius: 0 !important; }
+.tui .restocking .empty-state h3 { color: #00ff41 !important; }
+.tui .restocking .empty-state p  { color: #00aa2a !important; }
+.tui .restocking .order-btn { background: #000000 !important; border: 1px solid #00ff41 !important; color: #00ff41 !important; border-radius: 0 !important; }
+.tui .restocking .order-btn:hover:not(:disabled) { background: #00ff41 !important; color: #000000 !important; }
+.tui .restocking .order-btn:disabled { background: #001a00 !important; color: #00aa2a !important; }
+.tui .restocking .over-budget-tag { color: #00ff41 !important; }
+</style>

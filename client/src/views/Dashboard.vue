@@ -1345,3 +1345,31 @@ export default {
 .dark .po-item-name { color: #f1f5f9 !important; }
 .dark .po-item-detail { color: #94a3b8 !important; }
 </style>
+
+<style>
+.tui .kpi-card { background: #000000 !important; border-color: #00ff41 !important; border-radius: 0 !important; box-shadow: none !important; }
+.tui .kpi-label { color: #00aa2a !important; }
+.tui .kpi-value { color: #00ff41 !important; }
+.tui .kpi-goal  { color: #00aa2a !important; }
+.tui .kpi-progress-bar { background: #001a00 !important; }
+.tui .section-title, .tui .header-meta { color: #00aa2a !important; }
+.tui .chart-card { background: #000000 !important; border-color: #00ff41 !important; border-radius: 0 !important; box-shadow: none !important; }
+.tui .chart-card .card-title { color: #00ff41 !important; }
+.tui .legend-item-compact { color: #00aa2a !important; }
+.tui .donut-center-label { fill: #00aa2a !important; }
+.tui .donut-center-value { fill: #00ff41 !important; }
+.tui .health-metric-label { color: #00aa2a !important; }
+.tui .health-metric-value { color: #00ff41 !important; }
+.tui .shortages-table th, .tui .top-products-table th { background: #000000 !important; color: #00aa2a !important; border-color: #00ff41 !important; }
+.tui .shortages-table td, .tui .top-products-table td { color: #00ff41 !important; border-color: #00ff41 !important; }
+.tui .shortages-table tr:hover, .tui .top-products-table tr:hover { background: #001a00 !important; }
+.tui .bar-bg, .tui .monthly-bar-bg, .tui .h-bar-bg { background: #001a00 !important; }
+.tui .bar-month, .tui .bar-count { color: #00aa2a !important; }
+.tui .category-name { color: #00aa2a !important; }
+.tui .category-value-label { color: #00ff41 !important; }
+.tui .po-form-section, .tui .po-form input, .tui .po-form select { background: #000000 !important; color: #00ff41 !important; border-color: #00ff41 !important; border-radius: 0 !important; }
+.tui .po-form label { color: #00aa2a !important; }
+.tui .po-history-item { background: #000000 !important; border-color: #00ff41 !important; border-radius: 0 !important; }
+.tui .po-item-name { color: #00ff41 !important; }
+.tui .po-item-detail { color: #00aa2a !important; }
+</style>

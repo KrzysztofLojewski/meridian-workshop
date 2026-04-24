@@ -351,3 +351,11 @@ export default {
 .dark .inventory td strong { color: #f1f5f9 !important; }
 .dark .inventory .search-wrapper input::placeholder { color: #64748b !important; }
 </style>
+
+<style>
+.tui .inventory .search-wrapper input { background: #000000 !important; border-color: #00ff41 !important; color: #00ff41 !important; border-radius: 0 !important; }
+.tui .inventory .search-wrapper input::placeholder { color: #00aa2a !important; }
+.tui .inventory th { background: #000000 !important; color: #00aa2a !important; border-color: #00ff41 !important; }
+.tui .inventory td { color: #00ff41 !important; border-color: #00ff41 !important; }
+.tui .inventory .clickable-row:hover { background: #001a00 !important; }
+</style>

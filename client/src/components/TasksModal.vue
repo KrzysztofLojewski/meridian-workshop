@@ -661,3 +661,23 @@ label {
 .dark .modal-close-btn              { color: #94a3b8 !important; }
 .dark .modal-close-btn:hover        { background: #334155 !important; color: #f1f5f9 !important; }
 </style>
+
+<style>
+.tui .modal-backdrop, .tui .modal-overlay { background: rgba(0,0,0,0.9) !important; }
+.tui .tasks-modal { background: #000000 !important; border: 1px solid #00ff41 !important; border-radius: 0 !important; }
+.tui .tasks-modal .modal-header { background: #000000 !important; border-bottom-color: #00ff41 !important; }
+.tui .tasks-modal h2 { color: #00ff41 !important; }
+.tui .add-task-form  { background: #000000 !important; border-color: #00ff41 !important; border-radius: 0 !important; }
+.tui .form-row label { color: #00aa2a !important; }
+.tui .form-row input, .tui .form-row select { background: #000000 !important; color: #00ff41 !important; border-color: #00ff41 !important; border-radius: 0 !important; }
+.tui .form-row input::placeholder { color: #00aa2a !important; }
+.tui .tasks-list     { background: #000000 !important; }
+.tui .task-item      { background: #000000 !important; border-color: #00ff41 !important; border-radius: 0 !important; }
+.tui .task-item:hover { background: #001a00 !important; }
+.tui .task-name, .tui .task-title { color: #00ff41 !important; }
+.tui .task-name.completed { color: #00aa2a !important; }
+.tui .task-meta, .tui .task-meta span { color: #00aa2a !important; }
+.tui .empty-tasks, .tui .empty-state { color: #00aa2a !important; background: #000000 !important; }
+.tui .modal-close-btn { color: #00aa2a !important; border-radius: 0 !important; }
+.tui .modal-close-btn:hover { background: #00ff41 !important; color: #000000 !important; }
+</style>

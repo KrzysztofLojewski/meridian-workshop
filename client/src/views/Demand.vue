@@ -405,3 +405,21 @@ export default {
 .dark .demand .stable-card    .trend-icon  { background: #1e3a5f !important; }
 .dark .demand .decreasing-card .trend-icon { background: #450a0a !important; }
 </style>
+
+<style>
+.tui .demand .trend-card { background: #000000 !important; border-color: #00ff41 !important; border-radius: 0 !important; }
+.tui .demand .trend-header { border-bottom-color: #00ff41 !important; }
+.tui .demand .trend-label { color: #00aa2a !important; }
+.tui .demand .trend-count { color: #00ff41 !important; }
+.tui .demand .increasing-card .trend-icon { background: #000000 !important; border: 1px solid #00ff41; color: #00ff41 !important; }
+.tui .demand .stable-card .trend-icon    { background: #000000 !important; border: 1px solid #00ff41; color: #00ff41 !important; }
+.tui .demand .decreasing-card .trend-icon { background: #000000 !important; border: 1px solid #00ff41; color: #00ff41 !important; }
+.tui .demand .trend-item      { background: #000000 !important; border-radius: 0 !important; }
+.tui .demand .trend-item:hover { background: #001a00 !important; }
+.tui .demand .item-name       { color: #00ff41 !important; }
+.tui .demand .more-items      { color: #00aa2a !important; }
+.tui .demand .card            { background: #000000 !important; border-color: #00ff41 !important; border-radius: 0 !important; }
+.tui .demand th { background: #000000 !important; color: #00aa2a !important; border-color: #00ff41 !important; }
+.tui .demand td { color: #00ff41 !important; border-color: #00ff41 !important; }
+.tui .demand tbody tr:hover { background: #001a00 !important; }
+</style>

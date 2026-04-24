@@ -875,3 +875,22 @@ alert(`Transaction Details:\n\nID: ${transaction.id}\nDescription: ${transaction
 .dark .spending .bar-bg            { background: #334155 !important; }
 .dark .spending .month-label       { color: #94a3b8 !important; }
 </style>
+
+<style>
+.tui .spending .card, .tui .spending .metric-card { background: #000000 !important; border-color: #00ff41 !important; border-radius: 0 !important; }
+.tui .spending .card-title, .tui .spending .metric-label { color: #00aa2a !important; }
+.tui .spending .metric-value { color: #00ff41 !important; }
+.tui .spending th { background: #000000 !important; color: #00aa2a !important; border-color: #00ff41 !important; }
+.tui .spending td { color: #00ff41 !important; border-color: #00ff41 !important; }
+.tui .spending tbody tr:hover { background: #001a00 !important; }
+.tui .spending .revenue-bar    { background: #00ff41 !important; }
+.tui .spending .legend-dot.revenue-color { background: #00ff41 !important; }
+.tui .spending .bar-label      { color: #00aa2a !important; }
+.tui .spending .legend-item    { color: #00aa2a !important; }
+.tui .spending .y-axis span    { color: #00aa2a !important; }
+.tui .spending .category-name  { color: #00aa2a !important; }
+.tui .spending .category-amount, .tui .spending .category-value { color: #00ff41 !important; }
+.tui .spending .category-bar   { background: #00ff41 !important; }
+.tui .spending .category-bar-container { background: #001a00 !important; }
+.tui .spending td strong       { color: #00ff41 !important; }
+</style>
