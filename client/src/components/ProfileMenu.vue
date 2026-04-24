@@ -279,3 +279,21 @@ const handleLogout = () => {
   text-align: center;
 }
 </style>
+
+<style>
+.dark .profile-btn { background: #1e293b; border-color: #475569; }
+.dark .profile-name, .dark .profile-role { color: #f1f5f9; }
+.dark .profile-role { color: #94a3b8; }
+.dark .profile-dropdown {
+  background: #1e293b;
+  border-color: #334155;
+}
+.dark .profile-info-section { border-color: #334155; }
+.dark .profile-full-name { color: #f1f5f9; }
+.dark .profile-email     { color: #94a3b8; }
+.dark .dropdown-item     { color: #cbd5e1; }
+.dark .dropdown-item:hover { background: #334155; }
+.dark .dropdown-divider  { background: #334155; }
+.dark .dropdown-item.logout { color: #f87171; }
+.dark .dropdown-item.logout:hover { background: #3f1a1a; }
+</style>
