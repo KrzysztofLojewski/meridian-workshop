@@ -30,7 +30,7 @@
           </router-link>
         </nav>
         <LanguageSwitcher />
-        <button class="dark-toggle" @click="toggleDark" :title="isDark ? 'Switch to light mode' : 'Switch to dark mode'">
+        <button v-if="!isTui" class="dark-toggle" @click="toggleDark" :title="isDark ? 'Switch to light mode' : 'Switch to dark mode'">
           {{ isDark ? '☀️' : '🌙' }}
         </button>
         <button class="tui-toggle" @click="toggleTui" :title="isTui ? 'Disable TUI mode' : 'Enable TUI mode'">
@@ -156,7 +156,7 @@ export default {
       }
     }
 
-    const isDark = ref(localStorage.getItem('dark_mode') === 'true')
+    const isDark = ref(localStorage.getItem('dark_mode') === 'true' || localStorage.getItem('tui_mode') === 'true')
     const toggleDark = () => {
       isDark.value = !isDark.value
       localStorage.setItem('dark_mode', isDark.value)
@@ -166,6 +166,11 @@ export default {
     const toggleTui = () => {
       isTui.value = !isTui.value
       localStorage.setItem('tui_mode', isTui.value)
+      // TUI uses dark colours as its base — force dark on when entering TUI
+      if (isTui.value && !isDark.value) {
+        isDark.value = true
+        localStorage.setItem('dark_mode', 'true')
+      }
     }
 
     onMounted(loadTasks)
@@ -645,4 +650,22 @@ tbody tr:hover {
 /* Loading / error */
 .tui .loading { color: #00aa2a !important; }
 .tui .error   { background: #000000 !important; border-color: #00ff41 !important; color: #00ff41 !important; }
+
+/* Native browser tooltips (title=) — can't be styled, but custom tooltip elements */
+.tui [data-tooltip]::after,
+.tui .tooltip,
+.tui .chart-tooltip,
+.tui .hover-label {
+  background: #000000 !important;
+  color: #00ff41 !important;
+  border: 1px solid #00ff41 !important;
+  border-radius: 0 !important;
+  font-family: 'Courier New', Courier, monospace !important;
+  box-shadow: none !important;
+}
+
+/* Bar chart track fills */
+.tui .kpi-progress-bar  { background: #001a00 !important; }
+.tui .kpi-progress      { background: #00ff41 !important; border-radius: 0 !important; }
+.tui .kpi-progress.success { background: #00ff41 !important; }
 </style>

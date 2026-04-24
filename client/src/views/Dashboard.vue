@@ -1354,6 +1354,13 @@ export default {
 .tui .kpi-value { color: #00ff41 !important; }
 .tui .kpi-goal  { color: #00aa2a !important; }
 .tui .kpi-progress-bar { background: #001a00 !important; }
+.tui .kpi-progress      { background: #00ff41 !important; border-radius: 0 !important; }
+.tui .kpi-progress.success { background: #00ff41 !important; }
+/* horizontal inventory bars */
+.tui .h-bar             { background: #00ff41 !important; border-radius: 0 !important; }
+.tui .h-bar-container   { background: #001a00 !important; border-radius: 0 !important; }
+.tui .h-bar-label       { color: #00aa2a !important; }
+.tui .h-bar-value       { color: #000000 !important; }
 .tui .section-title, .tui .header-meta { color: #00aa2a !important; }
 .tui .chart-card { background: #000000 !important; border-color: #00ff41 !important; border-radius: 0 !important; box-shadow: none !important; }
 .tui .chart-card .card-title { color: #00ff41 !important; }
