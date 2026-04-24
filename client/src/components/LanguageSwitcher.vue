@@ -215,3 +215,13 @@ const selectLanguage = (locale) => {
 .dark .dropdown-item:hover           { background: #334155 !important; }
 .dark .dropdown-item.active          { background: #1e3a5f !important; color: #60a5fa !important; }
 </style>
+
+<style>
+.tui .language-button, .tui .language-switcher-btn { background: #000000 !important; border-color: #00ff41 !important; color: #00ff41 !important; border-radius: 0 !important; }
+.tui .language-button:hover { background: #001a00 !important; }
+.tui .language-label  { color: #00ff41 !important; }
+.tui .dropdown-menu, .tui .language-dropdown { background: #000000 !important; border-color: #00ff41 !important; border-radius: 0 !important; }
+.tui .dropdown-item, .tui .language-option { color: #00ff41 !important; }
+.tui .dropdown-item:hover, .tui .language-option:hover { background: #001a00 !important; }
+.tui .dropdown-item.active, .tui .language-option.active { background: #00ff41 !important; color: #000000 !important; }
+</style>

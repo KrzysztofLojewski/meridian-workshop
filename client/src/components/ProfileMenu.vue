@@ -328,3 +328,23 @@ const handleLogout = () => {
 .dark .dropdown-item.logout:hover    { background: #3f1a1a !important; }
 .dark .task-badge                    { background: #2563eb !important; }
 </style>
+
+<style>
+.tui .profile-btn, .tui .profile-button { background: #000000 !important; border-color: #00ff41 !important; border-radius: 0 !important; }
+.tui .profile-btn:hover, .tui .profile-button:hover { background: #001a00 !important; }
+.tui .profile-name    { color: #00ff41 !important; }
+.tui .profile-role    { color: #00aa2a !important; }
+.tui .profile-dropdown, .tui .dropdown-menu { background: #000000 !important; border-color: #00ff41 !important; border-radius: 0 !important; }
+.tui .dropdown-header { background: #000000 !important; border-bottom-color: #00ff41 !important; }
+.tui .user-name       { color: #00ff41 !important; }
+.tui .user-email      { color: #00aa2a !important; }
+.tui .profile-full-name { color: #00ff41 !important; }
+.tui .profile-email     { color: #00aa2a !important; }
+.tui .dropdown-item   { color: #00ff41 !important; }
+.tui .dropdown-item:hover { background: #001a00 !important; }
+.tui .dropdown-divider { background: #00ff41 !important; }
+.tui .dropdown-item.logout { color: #00ff41 !important; }
+.tui .dropdown-item.logout:hover { background: #00ff41 !important; color: #000000 !important; }
+.tui .task-badge      { background: #000000 !important; border: 1px solid #00ff41 !important; color: #00ff41 !important; }
+.tui .profile-info-section { border-color: #00ff41 !important; }
+</style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="app" :class="{ dark: isDark }">
+  <div class="app" :class="{ dark: isDark, tui: isTui }">
     <header class="top-nav">
       <div class="nav-container">
         <div class="logo">
@@ -32,6 +32,9 @@
         <LanguageSwitcher />
         <button class="dark-toggle" @click="toggleDark" :title="isDark ? 'Switch to light mode' : 'Switch to dark mode'">
           {{ isDark ? '☀️' : '🌙' }}
+        </button>
+        <button class="tui-toggle" @click="toggleTui" :title="isTui ? 'Disable TUI mode' : 'Enable TUI mode'">
+          {{ isTui ? '[X]' : '>_' }}
         </button>
         <ProfileMenu
           @show-profile-details="showProfileDetails = true"
@@ -158,12 +161,20 @@ export default {
       localStorage.setItem('dark_mode', isDark.value)
     }
 
+    const isTui = ref(localStorage.getItem('tui_mode') === 'true')
+    const toggleTui = () => {
+      isTui.value = !isTui.value
+      localStorage.setItem('tui_mode', isTui.value)
+    }
+
     onMounted(loadTasks)
 
     return {
       t,
       isDark,
       toggleDark,
+      isTui,
+      toggleTui,
       showProfileDetails,
       showTasks,
       tasks,
@@ -208,6 +219,23 @@ export default {
   --nav-active-color: #60a5fa;
   --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.tui {
+  --bg-page: #000000;
+  --bg-surface: #000000;
+  --bg-surface-alt: #000000;
+  --bg-hover: #001a00;
+  --border: #00ff41;
+  --border-strong: #00ff41;
+  --text-primary: #00ff41;
+  --text-secondary: #00aa2a;
+  --text-body: #00ff41;
+  --text-muted: #00aa2a;
+  --nav-active-bg: #00ff41;
+  --nav-active-color: #000000;
+  --shadow-sm: none;
+  --shadow-md: none;
 }
 
 * {
@@ -548,4 +576,72 @@ tbody tr:hover {
 .dark-toggle:hover {
   background: var(--bg-hover);
 }
+
+.tui-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.875rem;
+  font-family: 'Courier New', Courier, monospace;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  transition: background 0.2s;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+}
+
+.tui-toggle:hover {
+  background: var(--bg-hover);
+}
+</style>
+
+<style>
+/* ── TUI structural overrides ─────────────────────────────── */
+.tui, .tui * { font-family: 'Courier New', Courier, monospace !important; }
+
+/* Nav */
+.tui .top-nav    { background: #000000 !important; border-bottom: 1px solid #00ff41 !important; box-shadow: none !important; }
+.tui .logo h1    { color: #00ff41 !important; }
+.tui .subtitle   { color: #00aa2a !important; border-left-color: #00ff41 !important; }
+.tui .nav-tabs a { border-radius: 0 !important; color: #00aa2a !important; }
+.tui .nav-tabs a:hover  { background: #001a00 !important; color: #00ff41 !important; }
+.tui .nav-tabs a.active { background: #00ff41 !important; color: #000000 !important; border-radius: 0 !important; }
+.tui .nav-tabs a.active::after { display: none !important; }
+.tui .dark-toggle { border-radius: 0 !important; border-color: #00ff41 !important; color: #00ff41 !important; }
+.tui .dark-toggle:hover { background: #001a00 !important; }
+.tui .tui-toggle  { border-radius: 0 !important; border-color: #00ff41 !important; color: #00ff41 !important; background: #000000 !important; }
+.tui .tui-toggle:hover  { background: #00ff41 !important; color: #000000 !important; }
+
+/* Cards */
+.tui .card       { background: #000000 !important; border: 1px solid #00ff41 !important; border-radius: 0 !important; box-shadow: none !important; }
+.tui .card-header { border-bottom-color: #00ff41 !important; }
+.tui .card-title  { color: #00ff41 !important; }
+
+/* Stat cards */
+.tui .stat-card  { background: #000000 !important; border: 1px solid #00ff41 !important; border-radius: 0 !important; box-shadow: none !important; }
+.tui .stat-card:hover { box-shadow: none !important; border-color: #00ff41 !important; }
+.tui .stat-label { color: #00aa2a !important; }
+.tui .stat-value,
+.tui .stat-card.warning .stat-value,
+.tui .stat-card.success .stat-value,
+.tui .stat-card.danger .stat-value,
+.tui .stat-card.info .stat-value { color: #00ff41 !important; }
+
+/* Tables */
+.tui thead       { background: #000000 !important; border-color: #00ff41 !important; }
+.tui th          { color: #00aa2a !important; }
+.tui td          { color: #00ff41 !important; border-color: #00ff41 !important; }
+.tui tbody tr:hover { background: #001a00 !important; }
+
+/* Badges */
+.tui .badge      { background: #000000 !important; color: #00ff41 !important; border: 1px solid #00ff41 !important; border-radius: 0 !important; }
+
+/* Page headers */
+.tui .page-header h2 { color: #00ff41 !important; }
+.tui .page-header p  { color: #00aa2a !important; }
+
+/* Loading / error */
+.tui .loading { color: #00aa2a !important; }
+.tui .error   { background: #000000 !important; border-color: #00ff41 !important; color: #00ff41 !important; }
 </style>

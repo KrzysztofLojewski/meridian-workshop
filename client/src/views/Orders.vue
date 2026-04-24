@@ -293,3 +293,12 @@ export default {
 .dark .orders td strong    { color: #f1f5f9 !important; }
 .dark .orders .order-items { color: #94a3b8 !important; }
 </style>
+
+<style>
+.tui .orders .card { background: #000000 !important; border-color: #00ff41 !important; border-radius: 0 !important; }
+.tui .orders th { background: #000000 !important; color: #00aa2a !important; border-color: #00ff41 !important; }
+.tui .orders td { color: #00ff41 !important; border-color: #00ff41 !important; }
+.tui .orders tbody tr:hover { background: #001a00 !important; }
+.tui .orders .stat-card { background: #000000 !important; border-color: #00ff41 !important; border-radius: 0 !important; }
+.tui .orders .item-meta { color: #00aa2a !important; }
+</style>
