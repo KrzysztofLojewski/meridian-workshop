@@ -470,3 +470,13 @@ export default {
 .dark .restocking .empty-state p  { color: #94a3b8; }
 .dark .restocking .trend.stable   { color: #94a3b8; }
 </style>
+
+<style>
+.dark .restocking .sku             { color: #94a3b8 !important; }
+.dark .restocking td               { color: #cbd5e1 !important; }
+.dark .restocking td strong        { color: #f1f5f9 !important; }
+.dark .restocking .restock-table th.sortable:hover { background: #334155 !important; }
+.dark .restocking .restock-table tr:hover          { background: #334155 !important; }
+.dark .restocking .over-budget-tag { color: #f87171 !important; }
+.dark .restocking .over-budget-text { color: #64748b !important; }
+</style>

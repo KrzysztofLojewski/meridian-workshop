@@ -333,3 +333,24 @@ const getStockBadgeClass = (stockLevel) => {
   transform: scale(0.95);
 }
 </style>
+
+<style>
+.dark .modal-overlay { background: rgba(0,0,0,0.7); }
+.dark .modal-content, .dark .modal-panel { background: #1e293b !important; border-color: #334155; }
+.dark .modal-header  { border-bottom-color: #334155; }
+.dark .modal-footer  { border-top-color: #334155; }
+.dark .modal-title, .dark .modal-header h2, .dark .modal-header h3 { color: #f1f5f9 !important; }
+.dark .modal-body label, .dark .detail-label { color: #94a3b8 !important; }
+.dark .modal-body p, .dark .detail-value, .dark .modal-body span { color: #cbd5e1 !important; }
+.dark .info-row, .dark .detail-row { border-bottom-color: #334155 !important; }
+.dark .info-value, .dark .field-value { color: #f1f5f9 !important; background: #0f172a !important; }
+.dark .modal-body input, .dark .modal-body select, .dark .modal-body textarea {
+  background: #0f172a !important; color: #f1f5f9 !important; border-color: #475569 !important;
+}
+.dark .modal-body input::placeholder { color: #64748b !important; }
+.dark .task-item { background: #0f172a !important; border-color: #334155 !important; }
+.dark .task-title { color: #f1f5f9 !important; }
+.dark .task-meta  { color: #94a3b8 !important; }
+.dark .empty-tasks { color: #94a3b8 !important; }
+.dark .section-heading { color: #94a3b8 !important; border-bottom-color: #334155 !important; }
+</style>

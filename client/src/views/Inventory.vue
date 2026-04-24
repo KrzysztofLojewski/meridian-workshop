@@ -345,3 +345,9 @@ export default {
 .dark .inventory .clickable-row:hover { background: #1e3a5f !important; }
 .dark .inventory .loading { color: #94a3b8; }
 </style>
+
+<style>
+.dark .inventory td        { color: #cbd5e1 !important; }
+.dark .inventory td strong { color: #f1f5f9 !important; }
+.dark .inventory .search-wrapper input::placeholder { color: #64748b !important; }
+</style>

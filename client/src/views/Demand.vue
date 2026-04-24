@@ -384,3 +384,11 @@ export default {
 .dark .demand .stable-card    .trend-icon { background: #1e3a5f; }
 .dark .demand .decreasing-card .trend-icon { background: #450a0a; }
 </style>
+
+<style>
+.dark .demand .trend-card .sku-list { background: #0f172a !important; }
+.dark .demand .sku-item { background: #334155 !important; color: #cbd5e1 !important; }
+.dark .demand .forecast-item-name { color: #f1f5f9 !important; }
+.dark .demand .forecast-item-sku  { color: #94a3b8 !important; }
+.dark .demand td strong { color: #f1f5f9 !important; }
+</style>

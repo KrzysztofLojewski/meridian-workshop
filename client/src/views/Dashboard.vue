@@ -1323,3 +1323,25 @@ export default {
 .dark .health-metric-label { color: #94a3b8 !important; }
 .dark .health-metric-value { color: #f1f5f9 !important; }
 </style>
+
+<style>
+/* Dashboard remaining fixes */
+.dark .kpi-card { background: #1e293b !important; }
+.dark .section-title { color: #94a3b8 !important; }
+.dark .kpi-progress-bar { background: #334155 !important; }
+.dark .order-health-container .chart-card { background: #1e293b !important; }
+.dark .bar-month { color: #94a3b8 !important; }
+.dark .bar-count { color: #94a3b8 !important; }
+.dark .monthly-bar-bg { background: #334155 !important; }
+.dark .h-bar-bg { background: #334155 !important; }
+.dark .category-name { color: #94a3b8 !important; }
+.dark .category-value-label { color: #f1f5f9 !important; }
+.dark .shortages-table th, .dark .top-products-table th { background: #0f172a !important; color: #94a3b8 !important; border-color: #334155 !important; }
+.dark .shortages-table td, .dark .top-products-table td { color: #cbd5e1 !important; border-color: #334155 !important; }
+.dark .shortages-table tr:hover, .dark .top-products-table tr:hover { background: #334155 !important; }
+.dark .po-form-section, .dark .po-form input, .dark .po-form select { background: #0f172a !important; color: #f1f5f9 !important; border-color: #475569 !important; }
+.dark .po-form label { color: #94a3b8 !important; }
+.dark .po-history-item { background: #0f172a !important; border-color: #334155 !important; }
+.dark .po-item-name { color: #f1f5f9 !important; }
+.dark .po-item-detail { color: #94a3b8 !important; }
+</style>
