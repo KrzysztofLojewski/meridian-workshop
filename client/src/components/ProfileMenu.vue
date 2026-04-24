@@ -312,3 +312,19 @@ const handleLogout = () => {
 .dark .dropdown-item.logout          { color: #f87171 !important; }
 .dark .dropdown-item.logout:hover    { background: #3f1a1a !important; }
 </style>
+
+<style>
+.dark .profile-button                { background: #1e293b !important; border-color: #475569 !important; }
+.dark .profile-button:hover          { background: #334155 !important; }
+.dark .profile-name                  { color: #f1f5f9 !important; }
+.dark .dropdown-menu                 { background: #1e293b !important; border-color: #334155 !important; }
+.dark .dropdown-header               { background: #0f172a !important; }
+.dark .user-name                     { color: #f1f5f9 !important; }
+.dark .user-email                    { color: #94a3b8 !important; }
+.dark .dropdown-item                 { color: #cbd5e1 !important; }
+.dark .dropdown-item:hover           { background: #334155 !important; }
+.dark .dropdown-divider              { background: #334155 !important; }
+.dark .dropdown-item.logout          { color: #f87171 !important; }
+.dark .dropdown-item.logout:hover    { background: #3f1a1a !important; }
+.dark .task-badge                    { background: #2563eb !important; }
+</style>
