@@ -192,3 +192,30 @@ export default {
   height: 18px;
 }
 </style>
+
+<style>
+.dark .filters-bar {
+  background: #1e293b;
+  border-bottom-color: #334155;
+}
+.dark .filter-group label {
+  color: #94a3b8;
+}
+.dark .filter-select {
+  background: #0f172a;
+  color: #f1f5f9;
+  border-color: #475569;
+}
+.dark .filter-select:hover {
+  border-color: #64748b;
+}
+.dark .reset-filters-btn {
+  background: #0f172a;
+  border-color: #334155;
+  color: #94a3b8;
+}
+.dark .reset-filters-btn:hover:not(:disabled) {
+  background: #334155;
+  color: #f1f5f9;
+}
+</style>

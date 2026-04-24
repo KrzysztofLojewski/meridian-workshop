@@ -849,3 +849,15 @@ alert(`Transaction Details:\n\nID: ${transaction.id}\nDescription: ${transaction
   text-align: right;
 }
 </style>
+
+<style>
+.dark .spending .card, .dark .spending .metric-card { background: #1e293b; border-color: #334155; }
+.dark .spending .card-title, .dark .spending .metric-label { color: #94a3b8; }
+.dark .spending .metric-value { color: #f1f5f9; }
+.dark .spending th { background: #0f172a; color: #94a3b8; border-color: #334155; }
+.dark .spending td { color: #cbd5e1; border-color: #334155; }
+.dark .spending tbody tr:hover { background: #334155; }
+.dark .spending .category-label { color: #94a3b8; }
+.dark .spending .category-value { color: #f1f5f9; }
+.dark .spending .cost-bar-bg    { background: #334155; }
+</style>

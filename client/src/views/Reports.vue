@@ -396,3 +396,19 @@ export default {
   margin: 1rem 0;
 }
 </style>
+
+<style>
+.dark .reports .card {
+  background: #1e293b;
+  border-color: #334155;
+}
+.dark .reports .card-title { color: #f1f5f9; }
+.dark .reports .reports-table th { background: #0f172a; color: #94a3b8; border-color: #334155; }
+.dark .reports .reports-table td { color: #cbd5e1; border-color: #334155; }
+.dark .reports .reports-table tr:hover { background: #334155; }
+.dark .reports .stat-card { background: #1e293b; border-color: #334155; }
+.dark .reports .stat-label { color: #94a3b8; }
+.dark .reports .stat-value { color: #f1f5f9; }
+.dark .reports .bar-label  { color: #94a3b8; }
+.dark .reports .loading, .dark .reports .error { color: #94a3b8; }
+</style>

@@ -367,3 +367,13 @@ export default {
   padding: 0.5rem;
 }
 </style>
+
+<style>
+.dark .demand .card { background: #1e293b; border-color: #334155; }
+.dark .demand th { background: #0f172a; color: #94a3b8; border-color: #334155; }
+.dark .demand td { color: #cbd5e1; border-color: #334155; }
+.dark .demand tbody tr:hover { background: #334155; }
+.dark .demand .stat-card { background: #1e293b; border-color: #334155; }
+.dark .demand .stat-value { color: #f1f5f9; }
+.dark .demand .stat-label { color: #94a3b8; }
+</style>
