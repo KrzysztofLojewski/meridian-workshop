@@ -640,3 +640,24 @@ label {
 .dark .empty-tasks { color: #94a3b8 !important; }
 .dark .section-heading { color: #94a3b8 !important; border-bottom-color: #334155 !important; }
 </style>
+
+<style>
+.dark .modal-backdrop               { background: rgba(0,0,0,0.75) !important; }
+.dark .tasks-modal                  { background: #1e293b !important; border-color: #334155 !important; }
+.dark .tasks-modal .modal-header    { border-bottom-color: #334155 !important; background: #1e293b !important; }
+.dark .tasks-modal h2               { color: #f1f5f9 !important; }
+.dark .add-task-form                { background: #0f172a !important; border-color: #334155 !important; }
+.dark .form-row label               { color: #94a3b8 !important; }
+.dark .form-row input,
+.dark .form-row select              { background: #1e293b !important; color: #f1f5f9 !important; border-color: #475569 !important; }
+.dark .form-row input::placeholder  { color: #64748b !important; }
+.dark .tasks-list                   { background: #0f172a !important; }
+.dark .task-item                    { background: #1e293b !important; border-color: #334155 !important; }
+.dark .task-item:hover              { background: #334155 !important; }
+.dark .task-name                    { color: #f1f5f9 !important; }
+.dark .task-name.completed          { color: #64748b !important; }
+.dark .task-meta span               { color: #94a3b8 !important; }
+.dark .empty-state                  { color: #94a3b8 !important; background: #0f172a !important; }
+.dark .modal-close-btn              { color: #94a3b8 !important; }
+.dark .modal-close-btn:hover        { background: #334155 !important; color: #f1f5f9 !important; }
+</style>
