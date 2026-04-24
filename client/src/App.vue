@@ -64,7 +64,7 @@
 </template>
 
 <script>
-import { ref, onMounted, computed } from 'vue'
+import { ref, onMounted, watch, computed } from 'vue'
 import { api } from './api'
 import { useAuth } from './composables/useAuth'
 import { useI18n } from './composables/useI18n'
@@ -173,7 +173,13 @@ export default {
       }
     }
 
-    onMounted(loadTasks)
+    // Teleported modals sit outside the .app div, so apply theme classes to body too
+    const syncBodyClasses = () => {
+      document.body.classList.toggle('dark', isDark.value)
+      document.body.classList.toggle('tui', isTui.value)
+    }
+    watch([isDark, isTui], syncBodyClasses)
+    onMounted(() => { loadTasks(); syncBodyClasses() })
 
     return {
       t,
